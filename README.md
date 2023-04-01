@@ -1,5 +1,5 @@
 
-<h1 align="center"><b>Hi , I'm Abdul Khalid </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
+<h1 align="center"><b>Hi , I'm Mahesh Chopade </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 
 <p align="center">
   <a href="https://github.com/DenverCoder1/readme-typing-svg"><img src="https://readme-typing-svg.herokuapp.com?font=Time+New+Roman&color=cyan&size=25&center=true&vCenter=true&width=600&height=100&lines=Assalamu+O+Alaikum+Warahmatullah..&hearts;++;Self-taught+Front-End+Developer,;Computer+Science+Student,;CTF+Newbie,;Active+Learner/Researcher,;Love+to+learn+new+stuffs..<3"></a>
@@ -20,8 +20,6 @@
 - A passionate Self-taught Front-end developer
 - Playing CTF's at spare time
 - Currently learning Web Development by Self
-- Personal website [link](https://www.0xabdulkhalid.ml)
-- I’m currently open for an Intern or a new job opportunity, this is [my resume](https://read.cv/0xabdulkhalid)
 
 <br><br>
 
@@ -106,23 +104,19 @@
 <ul>
 
 <li>
-<a href="https://linkedin.com/in/0xabdulkhalid" target="_blank">
+<a href="https://linkedin.com/in/bot-tech-05309a256" target="_blank">
 <img src="https://img.shields.io/badge/linkedin:  0xabdulkhalid-0077B5.svg?color=405DE6&style=for-the-badge&logo=linkedin&logoColor=white" alt=linkedin style="margin-bottom: 5px;"/>
 </a>
 </li>
 
 <br>
 
-<li>
-<a href="https://twitter.com/0xabdulkhalid" target="_blank">
-<img src="https://img.shields.io/badge/twitter:  0xabdulkhalid-%2300acee.svg?color=1DA1F2&style=for-the-badge&logo=twitter&logoColor=white" alt=twitter style="margin-bottom: 5px;"/>
-</a>
-</li>
+
 
 <br>
 
 <li>
-<a href="mailto:0xabdulkhalid@gmail.com" target="_blank">
+<a href="mailto:maheshchopade133@gmail.com" target="_blank">
 <img src="https://img.shields.io/badge/gmail:  0xabdulkhalid-%23EA4335.svg?style=for-the-badge&logo=gmail&logoColor=white" t=mail style="margin-bottom: 5px;" />
 </a>
 </li>
@@ -138,7 +132,7 @@
 
 <div align='center'>
 
-## <b>السَّلاَمُ عَلَيْكُمْ وَرَحْمَةُ اللهِ وَبَرَكَاتُهُ...✨</b>
+## <b>اThere is an easy way and a hard way....✨</b>
 
 </div>
 <br>
