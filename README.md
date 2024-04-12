@@ -1,4 +1,4 @@
-
+![image](https://github.com/mahesh2-lab/mahesh2-lab/assets/65208771/833bf55c-5369-4268-8384-f3cd58e15589)
 <h1 align="center"><b>Hi , I'm Mahesh Chopade </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 
 
@@ -18,8 +18,8 @@
 - A passionate Self-taught Front-end developer
 - Playing CTF's at spare time
 - Currently learning Web Development by Self
-- Personal website [link](https://www.mahesh2-lab.ml)
-- I’m currently open for an Intern or a new job opportunity, this is [my resume](https://read.cv/mahesh2-lab)
+- Personal website [link](https://maheshportfolio.tech/)
+- I’m currently open for an Intern or a new job opportunity, this is [my resume](https://read.cv/mahesh2lab)
 
 <br><br>
 
