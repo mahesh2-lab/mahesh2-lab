@@ -1,8 +1,9 @@
-<h1 align="center"><b>Hi , I'm Mahesh Chopade </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
+<div align="center"><img  src="https://github.com/mahesh2-lab/mahesh2-lab/assets/65208771/15cc189e-6426-407e-9c3a-28a455cff7fa" width="200"></img>
+</div>
+<h1 align="center"><b>Hi , I'm Mahesh Chopade </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35">
+</h1>
 
 
-
-![pngegg](https://github.com/mahesh2-lab/mahesh2-lab/assets/65208771/15cc189e-6426-407e-9c3a-28a455cff7fa)
 
 <br>
 
@@ -134,6 +135,7 @@
 <br>
 <br>
 <br>
+<img src="https://profile-readme-generator.com/assets/snake.svg" alt="Snake animation" />
 
 
 <br>
