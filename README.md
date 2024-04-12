@@ -135,8 +135,8 @@
 <br>
 <br>
 <br>
-<img src="https://profile-readme-generator.com/assets/snake.svg" alt="Snake animation" />
 
+<img src="https://raw.githubusercontent.com/mahesh2-lab/mahesh2-lab/output/snake.svg" alt="Snake animation" />
 
 <br>
 <br>
