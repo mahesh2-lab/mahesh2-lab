@@ -1,4 +1,3 @@
-![image](https://github.com/mahesh2-lab/mahesh2-lab/assets/65208771/833bf55c-5369-4268-8384-f3cd58e15589)
 <h1 align="center"><b>Hi , I'm Mahesh Chopade </b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 
 
