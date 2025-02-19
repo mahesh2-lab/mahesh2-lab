@@ -64,7 +64,8 @@
     
 <br>
 
-- **Softwares and Tools**:
+- **Softwares and Tools**:![Uploading image.png…]()
+
 
     ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
     ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
@@ -107,7 +108,7 @@
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=mahesh2-lab&show_icons=true&locale=en&layout=compact&line_height=20&title_color=7A7ADB&icon_color=2234AE&text_color=D3D3D3&bg_color=0,000000,130F40" height="170"  alt="mahesh2-lab"/>
 
 <div align="center">
-  [![GitHub Streak](https://streak-stats.demolab.com/?user=mahesh2-lab&theme=dark)](https://git.io/streak-stats)
+  [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=mahesh2-lab)](https://git.io/streak-stats)
 </div>
 </a>
 </div>
