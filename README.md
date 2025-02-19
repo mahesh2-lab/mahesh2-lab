@@ -108,7 +108,7 @@
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=mahesh2-lab&show_icons=true&locale=en&layout=compact&line_height=20&title_color=7A7ADB&icon_color=2234AE&text_color=D3D3D3&bg_color=0,000000,130F40" height="170"  alt="mahesh2-lab"/>
 
 <div align="center">
- <a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=mahesh2-lab" alt="GitHub Streak" /></a>
+ <a href="https://git.io/streak-stats"><img src="https://github-readme-streak-stats.herokuapp.com?user=mahesh2-lab&theme=dark" alt="GitHub Streak" /></a>
 </div>
 </a>
 </div>
