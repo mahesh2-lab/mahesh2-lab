@@ -107,7 +107,7 @@
 <img src="https://github-readme-stats.vercel.app/api/top-langs?username=mahesh2-lab&show_icons=true&locale=en&layout=compact&line_height=20&title_color=7A7ADB&icon_color=2234AE&text_color=D3D3D3&bg_color=0,000000,130F40" height="170"  alt="mahesh2-lab"/>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com?user=mahesh2-lab&locale=en&mode=daily&theme=dark&hide_border=false&border_radius=5&order=3" height="170" alt="streak graph"  />
+  [![GitHub Streak](https://streak-stats.demolab.com/?user=mahesh2-lab&theme=dark)](https://git.io/streak-stats)
 </div>
 </a>
 </div>
