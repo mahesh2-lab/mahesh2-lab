@@ -16,7 +16,7 @@
 
 ## 🌐 Connect with Me
 <p align="center">
-  <a href="https://instagram.com/mahesh_0_0_8" target="_blank">
+  <a href="https://instagram.com/mahesh_0_8_8" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white" />
   </a>
   <a href="https://linkedin.com/in/mahesh-chopade-05309a256" target="_blank">
