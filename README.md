@@ -5,12 +5,12 @@
 
 
 # 💫 About Me
-- 🔭 I’m currently working on: **[Mention your project here]**  
-- 🐯 I’m looking to collaborate on: **[Mention here]**  
-- 🤝 I’m looking for help with: **[Mention here]**  
-- 🌱 I’m currently learning: **[Mention here]**  
+- 🔭 I’m currently exploring new project ideas and sharpening my skills  
+- 🐯 I’m looking to collaborate on: **Web apps, open-source tools, or anything creative with React or Node.js**  
+- 🤝 I’m looking for help with: **Advanced backend security and scaling full-stack apps**  
+- 🌱 I’m currently learning: **Machine learning, React Native, and AWS services**  
 - 💬 Ask me about: **Web Development, React, Node.js, AWS**  
-- ⚡ Fun fact: *I can turn ☕ into code and bugs into features!*  
+- ⚡ Fun fact: *I can turn ☕ into code and bugs into features!*
 
 ---
 
