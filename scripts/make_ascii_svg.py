@@ -72,9 +72,12 @@ for y in range(ROWS):
     cells.append(row)
 
 # ---- timing ---------------------------------------------------------------
-REVEAL = 2.4     # seconds for the diagonal wavefront to cross the frame
-HOLD = 4.6       # seconds fully visible
-LOOP = REVEAL + HOLD  # single cycle length for the art
+# The reveal plays ONCE and freezes (that's the fix for the old "glowing up and
+# down" look -- previously it looped, re-fading the whole image forever). Only
+# the scan bar keeps moving afterwards, as subtle ambient life.
+STAGGER = 2.2    # seconds across which rows cascade in, top -> bottom
+ROW_DUR = 0.5    # per-row slide-in duration
+SWEEP = 6.5      # scan-bar sweep period
 
 art_top = TITLEBAR_H + PAD * 0.35
 
@@ -93,12 +96,13 @@ def build_art_text():
         )
     return "".join(lines)
 
-# Per-row reveal: each row is its own <g> so the wavefront can stagger it.
+# Per-row reveal: each row is its own <g> so it can slide + fade in on a
+# staggered, top->bottom cascade (line after line), then hold.
 def build_reveal_rows():
     out = []
     for ry, row in enumerate(cells):
         y = art_top + ry * CELL_H + CELL_H * 0.74
-        delay = (ry / ROWS) * REVEAL   # rows deeper down start later
+        delay = (ry / ROWS) * STAGGER   # rows deeper down start later
         tspans = []
         for cx, (ch, color) in enumerate(row):
             x = PAD + cx * CELL_W
@@ -114,19 +118,13 @@ ART_TEXT = build_art_text()
 
 # ---- 3. assemble SVG ------------------------------------------------------
 css = f"""
-@keyframes decode {{
-  0%   {{ opacity: 0; filter: blur(1.4px); }}
-  50%  {{ opacity: 0.5; }}
-  60%  {{ opacity: 1; filter: blur(0); }}
-  100% {{ opacity: 1; filter: blur(0); }}
+@keyframes reveal {{
+  0%   {{ opacity: 0; transform: translateY(-9px); filter: blur(2px); }}
+  100% {{ opacity: 1; transform: translateY(0);   filter: blur(0); }}
 }}
-.row {{ opacity: 0; animation: decode {LOOP:.2f}s cubic-bezier(.2,.8,.2,1) infinite; }}
-@keyframes flick {{
-  0%,96%,100% {{ opacity: 1; }}
-  97% {{ opacity: 0.82; }}
-  98.5% {{ opacity: 0.95; }}
-}}
-.art {{ animation: flick 5.5s steps(1,end) infinite; }}
+.row {{ opacity: 0; animation: reveal {ROW_DUR:.2f}s cubic-bezier(.2,.8,.2,1) both; }}
+@keyframes ghostin {{ to {{ opacity: 0.26; }} }}
+.ghost {{ opacity: 0; animation: ghostin 0.9s ease-out 0.1s both; }}
 """.strip()
 
 parts = []
@@ -175,31 +173,26 @@ clip_h = ART_H + PAD * 0.7
 parts.append(f'<clipPath id="artclip"><rect x="1" y="{clip_y}" width="{CANVAS_W-2}" height="{clip_h:.1f}"/></clipPath>')
 parts.append('<g clip-path="url(#artclip)">')
 
-# chromatic-aberration ghosts (whole-art copies, jittering x)
-parts.append(
-    f'<g opacity="0.32" style="mix-blend-mode:screen"><g fill="#ff2d55">{ART_TEXT}'
-    f'<animateTransform attributeName="transform" type="translate" '
-    f'values="0 0; 1.6 0; 0 0; -1.3 0; 0 0" keyTimes="0;0.25;0.5;0.75;1" '
-    f'dur="4.3s" repeatCount="indefinite"/></g></g>'
-)
-parts.append(
-    f'<g opacity="0.32" style="mix-blend-mode:screen"><g fill="#22d3ee">{ART_TEXT}'
-    f'<animateTransform attributeName="transform" type="translate" '
-    f'values="0 0; -1.6 0; 0 0; 1.3 0; 0 0" keyTimes="0;0.25;0.5;0.75;1" '
-    f'dur="4.3s" repeatCount="indefinite"/></g></g>'
-)
+# chromatic-aberration ghosts: two faint copies at a constant +/- offset, so we
+# get a permanent RGB fringe with NO looping motion (motion was the "glow"). They
+# fade in once alongside the art.
+parts.append(f'<g class="ghost" fill="#ff2d55" transform="translate(1.6,0)">{ART_TEXT}</g>')
+parts.append(f'<g class="ghost" fill="#22d3ee" transform="translate(-1.6,0)">{ART_TEXT}</g>')
 
-# the real, colored art with the per-row decode reveal + CRT flicker
-parts.append(f'<g class="art">{build_reveal_rows()}</g>')
+# the real, colored art with the per-row slide-down reveal (plays once, freezes)
+parts.append(f'<g>{build_reveal_rows()}</g>')
 
 parts.append(f'<rect x="1" y="{clip_y}" width="{CANVAS_W-2}" height="{clip_h:.1f}" fill="url(#scan)"/>')
 
-bar_h = 26
+# scan bar: the ONLY looping motion now -- a slow, subtle ambient sweep.
+bar_h = 22
 parts.append(
     f'<rect x="1" width="{CANVAS_W-2}" height="{bar_h}" y="{clip_y}" fill="url(#scanbar)" '
-    f'filter="url(#soft)" opacity="0.75">'
-    f'<animate attributeName="y" values="{clip_y};{clip_y+clip_h:.1f};{clip_y}" '
-    f'keyTimes="0;0.85;1" dur="{LOOP:.2f}s" repeatCount="indefinite"/></rect>'
+    f'filter="url(#soft)" opacity="0.5">'
+    f'<animate attributeName="y" values="{clip_y};{clip_y+clip_h:.1f}" '
+    f'dur="{SWEEP:.2f}s" repeatCount="indefinite"/>'
+    f'<animate attributeName="opacity" values="0;0.5;0.5;0" keyTimes="0;0.1;0.85;1" '
+    f'dur="{SWEEP:.2f}s" repeatCount="indefinite"/></rect>'
 )
 parts.append('</g>')  # end artclip
 

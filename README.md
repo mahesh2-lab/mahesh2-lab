@@ -23,7 +23,23 @@
 </tr>
 </table>
 
+<br>
+
+<!-- commit-eating snake, fed by real contribution data (output branch) -->
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake-dark.svg" />
+  <img alt="commit-eating snake, fed by real contribution data" src="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake.svg" width="860" />
+</picture>
+
+<br><br>
+
+### · contribution activity ·
+
+<img src="./contrib-heatmap.svg" width="860" alt="Avi's real GitHub contribution heatmap — a grid of boxes, auto-refreshed daily" />
+
 </div>
+
+<br>
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
@@ -96,19 +112,6 @@
 ```
 
 <div align="center">
-
-### · contribution activity ·
-
-<img src="./contrib-heatmap.svg" width="820" alt="Avi's real GitHub contribution heatmap, auto-refreshed daily" />
-
-<br><br>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake-dark.svg" />
-  <img alt="commit-eating snake, fed by real contribution data" src="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake.svg" width="820" />
-</picture>
-
-<br><br>
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐

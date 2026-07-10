@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Render data/contributions.json (produced by fetch_contributions.py) as a
-terminal-styled ASCII contribution heatmap SVG -- one monospace character
-per day, colored by intensity, laid out in the classic 53-week x 7-day
-calendar grid, with a SMIL column-wipe reveal animation and a real stats
-footer (streaks / total / best day).
+Render data/contributions.json (produced by fetch_contributions.py) as a proper
+GitHub-style contribution heatmap SVG: a grid of rounded, colored BOXES in the
+classic 53-week x 7-day calendar, revealed once with a diagonal line-after-line
+slide-down (CSS keyframes, plays on load then freezes -- no looping "glow"), a
+Less->More legend, and a real stats footer.
 
 Run by .github/workflows/update-profile-art.yml after fetch_contributions.py.
 """
@@ -16,20 +16,30 @@ HERE = os.path.dirname(__file__)
 IN_PATH = os.path.join(HERE, "..", "data", "contributions.json")
 OUT_PATH = os.path.join(HERE, "..", "contrib-heatmap.svg")
 
-RAMP = " .:-*#@"
-PALETTE = ["#1c2128", "#0e4429", "#146c37", "#26a648", "#39d353", "#7cf2a0"]
+# GitHub-ish green ramp: empty -> brightest. Level 5 is a brighter neon top end.
+PALETTE = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353", "#69f0a0"]
 
-CELL = 11
-GAP = 2
+CELL = 12
+GAP = 3
 STEP = CELL + GAP
-PAD = 20
-LEFT_LABEL_W = 26
-TOP_LABEL_H = 18
-BG = "#0d1117"
-BG2 = "#161b22"
-FRAME = "#30363d"
-TITLE_TEXT = "#8b949e"
+PAD = 22
+LEFT_LABEL_W = 30
+TOP_LABEL_H = 20
 TITLEBAR_H = 30
+
+BG = "#0a0e14"
+BG2 = "#0d1420"
+FRAME = "#1f6feb"
+MUTED = "#7d8590"
+TEXT = "#e6edf3"
+ACCENT = "#22d3ee"
+GREEN = "#39d353"
+GOLD = "#f2cc60"
+
+# reveal timing (one-shot)
+COL_T = 0.018   # per-column delay contribution (left -> right sweep)
+ROW_T = 0.045   # per-row delay contribution (top -> bottom cascade)
+CELL_DUR = 0.42
 
 
 def level_for(count):
@@ -88,62 +98,74 @@ def render(data):
             break
 
     canvas_w = PAD + LEFT_LABEL_W + art_w + PAD
-    stats_h = 92
+    stats_h = 88
     canvas_h = TITLEBAR_H + TOP_LABEL_H + art_h + stats_h + PAD
+
+    css = f"""
+@keyframes cell {{
+  0%   {{ opacity: 0; transform: translateY(-6px); }}
+  100% {{ opacity: 1; transform: translateY(0); }}
+}}
+.c {{ opacity: 0; animation: cell {CELL_DUR:.2f}s cubic-bezier(.2,.8,.2,1) both; }}
+""".strip()
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{canvas_w}" height="{canvas_h}" '
         f'viewBox="0 0 {canvas_w} {canvas_h}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">',
-        f'<rect width="{canvas_w}" height="{canvas_h}" rx="10" fill="{BG}">'
-        f'<animate attributeName="fill" values="{BG};{BG2};{BG}" dur="9s" repeatCount="indefinite"/></rect>',
-        f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="10" '
-        f'fill="none" stroke="{FRAME}" stroke-width="1"/>',
-        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-width="1"/>',
+        f'<style>{css}</style>',
+        '<defs>'
+        f'<linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient>'
+        '</defs>',
+        f'<rect width="{canvas_w}" height="{canvas_h}" rx="12" fill="url(#hbg)"/>',
+        f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="12" '
+        f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>',
+        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
     ]
     for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
         parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
-    parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{TITLE_TEXT}" font-size="12" '
-                  f'text-anchor="middle">avi@github: ~/contrib-heatmap.sh</text>')
+    parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
+                 f'text-anchor="middle">avi@github: ~/contributions --graph</text>')
 
     grid_top = TITLEBAR_H + TOP_LABEL_H
     grid_left = PAD + LEFT_LABEL_W
 
     for ci, label in month_labels:
         x = grid_left + ci * STEP
-        parts.append(f'<text x="{x}" y="{TITLEBAR_H + 13}" fill="{TITLE_TEXT}" font-size="11">{label}</text>')
+        parts.append(f'<text x="{x}" y="{TITLEBAR_H + 14}" fill="{MUTED}" font-size="10">{label}</text>')
 
     for wi, wname in [(1, "Mon"), (3, "Wed"), (5, "Fri")]:
-        y = grid_top + wi * STEP + CELL * 0.8
-        parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="{TITLE_TEXT}" font-size="10">{wname}</text>')
+        y = grid_top + wi * STEP + CELL * 0.78
+        parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="{MUTED}" font-size="9">{wname}</text>')
 
-    total_anim = n_cols * 0.045 + 1.2
-
+    # the boxes -- each a rounded rect, diagonal slide-down reveal (once, freeze)
     for ci, column in enumerate(grid):
         gx = grid_left + ci * STEP
-        t0 = (ci / n_cols) * (n_cols * 0.045)
-        a = (t0 + 0.35) / (total_anim + 2.5)
-        hold_end = (total_anim + 1.8) / (total_anim + 2.5)
-        key_times = f"0;{a:.4f};{hold_end:.4f};1"
-        g_parts = []
         for ri, cell in enumerate(column):
             if cell is None:
                 continue
             date_s, count, lvl = cell
             gy = grid_top + ri * STEP
-            ch = RAMP[min(lvl, len(RAMP) - 1)]
-            color = PALETTE[lvl]
-            g_parts.append(
-                f'<text x="{gx}" y="{gy + CELL*0.85:.1f}" font-size="{CELL:.0f}" fill="{color}" '
-                f'textLength="{CELL}" lengthAdjust="spacingAndGlyphs">{ch}'
-                f'<title>{date_s}: {count} contribution{"s" if count != 1 else ""}</title></text>'
+            delay = ci * COL_T + ri * ROW_T
+            plural = "s" if count != 1 else ""
+            parts.append(
+                f'<rect class="c" x="{gx}" y="{gy}" width="{CELL}" height="{CELL}" rx="2.5" '
+                f'fill="{PALETTE[lvl]}" style="animation-delay:{delay:.3f}s">'
+                f'<title>{date_s}: {count} contribution{plural}</title></rect>'
             )
-        parts.append(
-            f'<g opacity="0"><animate attributeName="opacity" values="0;1;1;0" keyTimes="{key_times}" '
-            f'dur="{total_anim+2.5:.2f}s" repeatCount="indefinite"/>{"".join(g_parts)}</g>'
-        )
 
-    sep_y = grid_top + art_h + 14
-    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-width="1"/>')
+    # legend: Less [][][][][] More (bottom-right of the grid)
+    leg_y = grid_top + art_h + 6
+    leg_x = canvas_w - PAD - (len(PALETTE) * (CELL - 1) + 70)
+    parts.append(f'<text x="{leg_x}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10" text-anchor="end">Less</text>')
+    lx = leg_x + 8
+    for lvl, color in enumerate(PALETTE):
+        parts.append(f'<rect x="{lx}" y="{leg_y}" width="{CELL-1}" height="{CELL-1}" rx="2.2" fill="{color}"/>')
+        lx += CELL
+    parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10">More</text>')
+
+    sep_y = leg_y + CELL + 14
+    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.25"/>')
 
     cs = data["current_streak"]["length"]
     ls = data["longest_streak"]["length"]
@@ -151,16 +173,20 @@ def render(data):
     best = data["best_day"]
     rng = data["range"]
 
-    rows = [
-        (f'{total:,} contributions', f'{rng["start"]} → {rng["end"]}'),
-        (f'current streak: {cs} days', f'longest streak: {ls} days'),
-        (f'best day: {best["count"]} contributions', f'on {best["date"]}'),
-    ]
-    ly = sep_y + 22
-    for left, right in rows:
-        parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="#39d353">{left}</text>')
-        parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="13" fill="#8b949e" text-anchor="end">{right}</text>')
-        ly += 22
+    ly = sep_y + 24
+    # left column: big highlighted numbers; right column: context in muted
+    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{GREEN}">'
+                 f'<tspan font-weight="700">{total:,}</tspan>'
+                 f'<tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
+    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="{MUTED}" text-anchor="end">'
+                 f'{rng["start"]} &#8594; {rng["end"]}</text>')
+    ly += 24
+    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{MUTED}">current streak '
+                 f'<tspan fill="{ACCENT}" font-weight="700">{cs} days</tspan>'
+                 f'<tspan fill="{MUTED}">   &#183;   longest </tspan>'
+                 f'<tspan fill="{ACCENT}" font-weight="700">{ls} days</tspan></text>')
+    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="{MUTED}" text-anchor="end">'
+                 f'best day <tspan fill="{GOLD}" font-weight="700">{best["count"]}</tspan> on {best["date"]}</text>')
 
     parts.append("</svg>")
     return "".join(parts)
