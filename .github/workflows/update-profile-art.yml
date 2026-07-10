@@ -29,19 +29,14 @@ jobs:
       - name: Scrape real contribution data (no auth needed)
         run: python scripts/fetch_contributions.py
 
-      - name: Render ASCII heatmap SVG
+      - name: Render contribution graph SVG (boxes)
         run: python scripts/render_heatmap_svg.py
-
-      - name: Render live stats card (uses GITHUB_TOKEN for stars/repos/langs)
-        run: python scripts/make_stats_card.py
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Commit updated art
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh contribution heatmap + stats card [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg stats-card.svg"
+          commit_message: "chore: refresh contribution graph [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg"
 
   snake:
     runs-on: ubuntu-latest
