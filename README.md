@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="./avi-ascii.svg" width="480" alt="Avi Vashishta - animated ASCII portrait" />
-
 ```
     ___ _    ______   _    _____   _____ __  ___________ __  ___________ 
    /   | |  / /  _/  | |  / /   | / ___// / / /  _/ ___// / / /_  __/   |
@@ -11,6 +9,19 @@
 ```
 
 **Fullstack Developer · AI Builder · Instructor · Entrepreneur**
+
+<!-- hero: animated glitch-decode ASCII portrait (left) + live stats card (right).
+     Both are self-hosted animated SVGs in this repo, so nothing 404s. -->
+<table>
+<tr>
+<td width="52%" valign="top">
+<img src="./avi-ascii.svg" width="100%" alt="Avi Vashishta — animated glitch-decode ASCII portrait" />
+</td>
+<td width="48%" valign="top">
+<img src="./stats-card.svg" width="100%" alt="Live GitHub stats — contributions, repos, stars, streaks, languages" />
+</td>
+</tr>
+</table>
 
 </div>
 
@@ -86,31 +97,31 @@
 
 <div align="center">
 
-<img src="./contrib-heatmap.svg" width="760" alt="Avi's real GitHub contribution heatmap, auto-refreshed daily" />
+### · contribution activity ·
+
+<img src="./contrib-heatmap.svg" width="820" alt="Avi's real GitHub contribution heatmap, auto-refreshed daily" />
 
 <br><br>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake-dark.svg" />
-  <img alt="commit-eating snake, fed by real contribution data" src="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake.svg" width="760" />
+  <img alt="commit-eating snake, fed by real contribution data" src="https://raw.githubusercontent.com/AVIVASHISHTA29/AVIVASHISHTA29/output/snake.svg" width="820" />
 </picture>
 
 <br><br>
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ visitor@github:~$ cat contact.sh                                         │
+│ visitor@github:~$ ./contact.sh                                           │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-avivashishta.com-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://www.avivashishta.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-avivashishta-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/avivashishta)
 [![Instagram](https://img.shields.io/badge/Instagram-avi__vashishta29-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/avi_vashishta29)
-[![Live Terminal](https://img.shields.io/badge/⚡_Live_Terminal-avivashishta29.github.io-39d353?style=for-the-badge&logo=gnometerminal&logoColor=white)](https://avivashishta29.github.io)
+[![Live Terminal](https://img.shields.io/badge/⚡_Live_Terminal-avivashishta29.github.io-22d3ee?style=for-the-badge&logo=gnometerminal&logoColor=black)](https://avivashishta29.github.io)
 
 <br>
-
-![GitHub stats](https://github-readme-stats.vercel.app/api?username=AVIVASHISHTA29&show_icons=true&count_private=true&title_color=0891b2&text_color=ffffff&icon_color=0891b2&bg_color=1c1917&hide_border=true)
 
 ```
 > process exited 0 — thanks for stopping by. now go build something.
@@ -119,8 +130,9 @@
 </div>
 
 <!--
-  contrib-heatmap.svg and the snake output branch are regenerated daily by
-  .github/workflows/update-profile-art.yml — see that file for details.
-  Real numbers, no hand-editing needed.
+  avi-ascii.svg   — glitch-decode ASCII portrait (scripts/make_ascii_svg.py)
+  stats-card.svg  — self-hosted live stats, replaces github-readme-stats
+                    (scripts/make_stats_card.py; refreshed daily with GITHUB_TOKEN)
+  contrib-heatmap.svg + the snake output branch are regenerated daily by
+  .github/workflows/update-profile-art.yml. Real numbers, no hand-editing.
 -->
-

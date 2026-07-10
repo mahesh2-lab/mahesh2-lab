@@ -32,11 +32,16 @@ jobs:
       - name: Render ASCII heatmap SVG
         run: python scripts/render_heatmap_svg.py
 
+      - name: Render live stats card (uses GITHUB_TOKEN for stars/repos/langs)
+        run: python scripts/make_stats_card.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Commit updated art
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh contribution heatmap [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg"
+          commit_message: "chore: refresh contribution heatmap + stats card [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg stats-card.svg"
 
   snake:
     runs-on: ubuntu-latest
