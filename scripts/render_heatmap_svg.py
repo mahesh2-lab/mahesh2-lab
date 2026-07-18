@@ -36,10 +36,10 @@ ACCENT = "#22d3ee"
 GREEN = "#39d353"
 GOLD = "#f2cc60"
 
-# reveal timing (one-shot)
-COL_T = 0.018   # per-column delay contribution (left -> right sweep)
-ROW_T = 0.045   # per-row delay contribution (top -> bottom cascade)
-CELL_DUR = 0.42
+# reveal timing (one-shot) - made slower
+COL_T = 0.045   # per-column delay contribution (left -> right sweep)
+ROW_T = 0.090   # per-row delay contribution (top -> bottom cascade)
+CELL_DUR = 0.85
 
 
 def level_for(count):
@@ -101,18 +101,23 @@ def render(data):
     stats_h = 88
     canvas_h = TITLEBAR_H + TOP_LABEL_H + art_h + stats_h + PAD
 
-    css = f"""
-@keyframes cell {{
-  0%   {{ opacity: 0; transform: translateY(-6px); }}
-  100% {{ opacity: 1; transform: translateY(0); }}
-}}
-.c {{ opacity: 0; animation: cell {CELL_DUR:.2f}s cubic-bezier(.2,.8,.2,1) both; }}
-""".strip()
+    css = ""
 
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{canvas_w}" height="{canvas_h}" '
         f'viewBox="0 0 {canvas_w} {canvas_h}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">',
-        f'<style>{css}</style>',
+        f'<style>{css}\n'
+        f'@keyframes fadeOutView {{\n'
+        f'  0%, 90% {{ opacity: 1; }}\n'
+        f'  100% {{ opacity: 0; visibility: hidden; }}\n'
+        f'}}\n'
+        f'@keyframes fadeInView {{\n'
+        f'  0%, 90% {{ opacity: 0; }}\n'
+        f'  100% {{ opacity: 1; visibility: visible; }}\n'
+        f'}}\n'
+        f'#heatmap-view {{ animation: fadeOutView 5.5s forwards; }}\n'
+        f'#bomberman-view {{ animation: fadeInView 5.5s forwards; opacity: 0; }}\n'
+        f'</style>',
         '<defs>'
         f'<linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">'
         f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient>'
@@ -125,10 +130,12 @@ def render(data):
     for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
         parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
     parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-                 f'text-anchor="middle">avi@github: ~/contributions --graph</text>')
+                 f'text-anchor="middle">virendra@github: ~/contributions --graph</text>')
 
     grid_top = TITLEBAR_H + TOP_LABEL_H
     grid_left = PAD + LEFT_LABEL_W
+
+    parts.append('<g id="heatmap-view">')
 
     for ci, label in month_labels:
         x = grid_left + ci * STEP
@@ -149,9 +156,12 @@ def render(data):
             delay = ci * COL_T + ri * ROW_T
             plural = "s" if count != 1 else ""
             parts.append(
-                f'<rect class="c" x="{gx}" y="{gy}" width="{CELL}" height="{CELL}" rx="2.5" '
-                f'fill="{PALETTE[lvl]}" style="animation-delay:{delay:.3f}s">'
-                f'<title>{date_s}: {count} contribution{plural}</title></rect>'
+                f'<g opacity="0" transform="translate(0, -6)">'
+                f'<animate attributeName="opacity" from="0" to="1" begin="{delay:.3f}s" dur="{CELL_DUR:.2f}s" fill="freeze"/>'
+                f'<animateTransform attributeName="transform" type="translate" from="0 -6" to="0 0" '
+                f'begin="{delay:.3f}s" dur="{CELL_DUR:.2f}s" fill="freeze" calcMode="spline" keySplines="0.2 0.8 0.2 1"/>'
+                f'<rect x="{gx}" y="{gy}" width="{CELL}" height="{CELL}" rx="2.5" fill="{PALETTE[lvl]}">'
+                f'<title>{date_s}: {count} contribution{plural}</title></rect></g>'
             )
 
     # legend: Less [][][][][] More (bottom-right of the grid)
@@ -163,6 +173,22 @@ def render(data):
         parts.append(f'<rect x="{lx}" y="{leg_y}" width="{CELL-1}" height="{CELL-1}" rx="2.2" fill="{color}"/>')
         lx += CELL
     parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10">More</text>')
+    
+    parts.append('</g>')
+    
+    import re
+    game_name = os.environ.get("CHOSEN_GAME", "bomberman")
+    bm_path = os.path.join(HERE, "..", "dist", f"{game_name}-contribution-graph-dark.svg")
+    if os.path.exists(bm_path):
+        with open(bm_path, "r", encoding="utf-8") as f:
+            bm_content = f.read()
+            match = re.search(r'<svg[^>]*>(.*)</svg>', bm_content, re.DOTALL | re.IGNORECASE)
+            if match:
+                inner_bm = match.group(1)
+                scale = art_w / 1166.0
+                parts.append(f'<g id="bomberman-view" transform="translate({grid_left}, {grid_top + 10}) scale({scale})">')
+                parts.append(inner_bm)
+                parts.append('</g>')
 
     sep_y = leg_y + CELL + 14
     parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.25"/>')
@@ -195,6 +221,6 @@ def render(data):
 if __name__ == "__main__":
     data = json.load(open(IN_PATH))
     svg = render(data)
-    with open(OUT_PATH, "w") as f:
+    with open(OUT_PATH, "w", encoding="utf-8") as f:
         f.write(svg)
     print(f"wrote {OUT_PATH} ({len(svg)} bytes)")

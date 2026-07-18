@@ -5,7 +5,7 @@ name: Update profile art
 
 "on":
   schedule:
-    - cron: "17 6 * * *"   # ~06:17 UTC every day
+    - cron: "0 */6 * * *"   # Run every 6 hours
   workflow_dispatch: {}
   push:
     branches: [main]
@@ -29,20 +29,25 @@ jobs:
       - name: Scrape real contribution data (no auth needed)
         run: python scripts/fetch_contributions.py
 
+      - name: Pick random game
+        id: pick_game
+        run: |
+          python -c "import random, os; game = random.choice(['bomberman', 'minesweeper', 'puzzle-bobble', 'galaga', 'breakout', 'pacman']); print(f'game={game}'); f = open(os.environ['GITHUB_OUTPUT'], 'a'); f.write(f'game={game}\n'); f.close()"
+
+      - name: Generate random game contribution graph SVG
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          games: ${{ steps.pick_game.outputs.game }}
+
       - name: Render animated contribution graph SVG
-        run: python scripts/generate_streak_svg.py mahesh2-lab contrib-heatmap.svg
-
-      - name: Render static info card SVG
-        run: python scripts/make_info_card.py
-
-      - name: Commit updated art
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "chore: refresh profile art [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg info-card.svg"
+        env:
+          CHOSEN_GAME: ${{ steps.pick_game.outputs.game }}
+        run: |
+          python scripts/render_heatmap_svg.py
 
       - name: Commit updated art
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh profile art [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg info-card.svg github-stats.svg top-langs.svg profile-3d-contrib/*"
+          commit_message: "chore: refresh contribution graph [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg dist/*"
