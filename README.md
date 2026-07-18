@@ -41,10 +41,14 @@
 <table align="center" width="860">
   <tr>
     <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api?username=mahesh2-lab&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Mahesh's GitHub Stats" />
+      <a href="https://www.readmecodegen.com/custom-github-card-generator">
+        <img src="https://www.readmecodegen.com/api/github-stats/svg?username=mahesh2-lab&repos=false&followers=false&following=false" alt="Mahesh's GitHub Stats" />
+      </a>
     </td>
     <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mahesh2-lab&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Top Languages" />
+      <a href="https://www.readmecodegen.com/custom-github-card-generator">
+        <img src="https://www.readmecodegen.com/api/github-stats/svg?username=mahesh2-lab&cardType=langs&repos=false&followers=false&following=false" alt="Top Languages" />
+      </a>
     </td>
   </tr>
 </table>
