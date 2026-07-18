@@ -1,45 +1,59 @@
 <svg width="300" height="235" viewBox="0 0 300 235" fill="none" xmlns="http://www.w3.org/2000/svg">
     <style>
-        .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; }
+        .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #70a5fd; animation: fadeIn 0.8s ease-in-out forwards; }
         .lang-name { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #38bdae; }
         .lang-pct { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }
+        .lang-row { opacity: 0; animation: slideUpFade 0.6s ease-out forwards; }
+        .lang-bar { animation: growWidth 1s ease-out forwards; transform-origin: left; }
+        @keyframes slideUpFade {
+            0% { opacity: 0; transform: translate(25px, calc(var(--y, 0px) + 15px)); }
+            100% { opacity: 1; transform: translate(25px, var(--y, 0px)); }
+        }
+        @keyframes growWidth {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
     </style>
     <rect x="0.5" y="0.5" width="299" height="234" rx="4.5" fill="#0d1117" stroke="#e4e2e2" stroke-opacity="0"/>
     <text x="25" y="35" class="header">Most Used Languages</text>
     
-        <g transform="translate(25, 65)">
+        <g class="lang-row" style="animation-delay: 0.1s; --y: 65px;">
             <text class="lang-name" x="0" y="0">TypeScript</text>
             <text class="lang-pct" x="250" y="0" text-anchor="end">35.7%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect x="0" y="8" width="89.28571428571429" height="8" rx="4" fill="#3178c6"/>
+            <rect class="lang-bar" x="0" y="8" width="89.28571428571429" height="8" rx="4" fill="#3178c6"/>
         </g>
         
-        <g transform="translate(25, 97)">
+        <g class="lang-row" style="animation-delay: 0.25s; --y: 97px;">
             <text class="lang-name" x="0" y="0">Python</text>
             <text class="lang-pct" x="250" y="0" text-anchor="end">28.6%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect x="0" y="8" width="71.42857142857143" height="8" rx="4" fill="#3572A5"/>
+            <rect class="lang-bar" x="0" y="8" width="71.42857142857143" height="8" rx="4" fill="#3572A5"/>
         </g>
         
-        <g transform="translate(25, 129)">
+        <g class="lang-row" style="animation-delay: 0.4s; --y: 129px;">
             <text class="lang-name" x="0" y="0">JavaScript</text>
             <text class="lang-pct" x="250" y="0" text-anchor="end">19.0%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect x="0" y="8" width="47.61904761904761" height="8" rx="4" fill="#f1e05a"/>
+            <rect class="lang-bar" x="0" y="8" width="47.61904761904761" height="8" rx="4" fill="#f1e05a"/>
         </g>
         
-        <g transform="translate(25, 161)">
+        <g class="lang-row" style="animation-delay: 0.5499999999999999s; --y: 161px;">
             <text class="lang-name" x="0" y="0">HTML</text>
             <text class="lang-pct" x="250" y="0" text-anchor="end">9.5%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect x="0" y="8" width="23.809523809523807" height="8" rx="4" fill="#e34c26"/>
+            <rect class="lang-bar" x="0" y="8" width="23.809523809523807" height="8" rx="4" fill="#e34c26"/>
         </g>
         
-        <g transform="translate(25, 193)">
+        <g class="lang-row" style="animation-delay: 0.7s; --y: 193px;">
             <text class="lang-name" x="0" y="0">CSS</text>
             <text class="lang-pct" x="250" y="0" text-anchor="end">7.1%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect x="0" y="8" width="17.857142857142858" height="8" rx="4" fill="#563d7c"/>
+            <rect class="lang-bar" x="0" y="8" width="17.857142857142858" height="8" rx="4" fill="#563d7c"/>
         </g>
         
 </svg>
