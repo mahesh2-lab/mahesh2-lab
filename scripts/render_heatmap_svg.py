@@ -104,9 +104,12 @@ def render(data):
     css = f"""
 @keyframes cell {{
   0%   {{ opacity: 0; transform: translateY(-6px); }}
-  100% {{ opacity: 1; transform: translateY(0); }}
+  10%  {{ opacity: 1; transform: translateY(0); }}
+  80%  {{ opacity: 1; transform: translateY(0); }}
+  90%  {{ opacity: 0; transform: translateY(-6px); }}
+  100% {{ opacity: 0; transform: translateY(-6px); }}
 }}
-.c {{ opacity: 0; animation: cell {CELL_DUR:.2f}s cubic-bezier(.2,.8,.2,1) both; }}
+.c {{ opacity: 0; animation: cell 8s cubic-bezier(.2,.8,.2,1) infinite; }}
 """.strip()
 
     parts = [
