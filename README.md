@@ -55,17 +55,10 @@
 
 <br>
 
-<h2 align="center">Arcade Contributions</h2>
-<table align="center" width="860">
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://raw.githubusercontent.com/mahesh2-lab/mahesh2-lab/output/pacman.svg" alt="Pacman Contribution Graph" />
-    </td>
-    <td align="center" width="50%">
-      <img src="" alt="Bomberman Contribution Graph" />
-    </td>
-  </tr>
-</table>
+<h2 align="center">Bomberman Contributions</h2>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/mahesh2-lab/mahesh2-lab/output/bomberman-contribution-graph-dark.svg" alt="Bomberman Contribution Graph" />
+</p>
 
 <br>
 
