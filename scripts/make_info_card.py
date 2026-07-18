@@ -21,9 +21,9 @@ KEY_X = PAD
 VAL_X = PAD + 92
 LINE_H = 20.5
 
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
+BG = "#0a0e14"
+BG2 = "#0d1420"
+FRAME = "#1f6feb"
 MUTED = "#7d8590"
 INK = "#c9d1d9"
 KEY = "#ffa657"      # orange keys (matches Andrew)
@@ -88,8 +88,8 @@ parts = [
     f'<linearGradient id="ibg" x1="0" y1="0" x2="0" y2="1">'
     f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient></defs>',
     f'<rect width="{W}" height="{H}" rx="12" fill="url(#ibg)"/>',
-    f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}"/>',
-    f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>',
+    f'<rect x="0.5" y="0.5" width="{W-1}" height="{H-1}" rx="12" fill="none" stroke="{FRAME}" stroke-opacity="0.55"/>',
+    f'<line x1="0" y1="{TITLEBAR_H}" x2="{W}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
 ]
 for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')

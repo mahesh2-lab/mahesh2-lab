@@ -45,9 +45,9 @@ ART_H = ROWS * CELL_H
 CANVAS_W = ART_W + PAD * 2
 CANVAS_H = TITLEBAR_H + ART_H + STATUS_H + PAD
 
-BG = "#0d1117"
-BG2 = "#111722"
-FRAME = "#30363d"
+BG = "#0a0e14"
+BG2 = "#0d1420"
+FRAME = "#1f6feb"
 TITLE_TEXT = "#7d8590"
 INK = "#c9d1d9"      # the single ascii color (matches Andrew6rant)
 CURSOR = "#c9d1d9"
@@ -103,13 +103,13 @@ parts.append('<defs>'
 
 parts.append(f'<rect width="{CANVAS_W}" height="{CANVAS_H}" rx="12" fill="url(#bg)"/>')
 parts.append(f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" '
-             f'fill="none" stroke="{FRAME}" stroke-width="1"/>')
+             f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>')
 
-parts.append(f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}"/>')
+parts.append(f'<line x1="0" y1="{TITLEBAR_H}" x2="{CANVAS_W}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>')
 for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
 parts.append(f'<text x="{CANVAS_W/2}" y="{TITLEBAR_H/2 + 4}" fill="{TITLE_TEXT}" font-size="12" '
-             f'text-anchor="middle">avi@github: ~$ ./portrait.sh</text>')
+             f'text-anchor="middle">mahesh@github: ~$ ./portrait.sh</text>')
 
 # one <text> per row (single color -> no per-char markup, tiny file)
 font_size = CELL_H * 0.86
@@ -142,9 +142,9 @@ for ry, line in enumerate(rows_txt):
 # status bar with a steady blinking cursor
 status_line_y = TITLEBAR_H + ART_H + PAD * 0.35
 status_y = status_line_y + 19
-parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}"/>')
+parts.append(f'<line x1="0" y1="{status_line_y:.1f}" x2="{CANVAS_W}" y2="{status_line_y:.1f}" stroke="{FRAME}" stroke-opacity="0.35"/>')
 parts.append(f'<text x="{PAD}" y="{status_y:.1f}" fill="{TITLE_TEXT}" font-size="13">'
-             f'avi@github:~$ whoami <tspan fill="{INK}">Avi Vashishta</tspan></text>')
+             f'mahesh@github:~$ whoami <tspan fill="{INK}">Mahesh</tspan></text>')
 parts.append(f'<rect x="{PAD+196}" y="{status_y-12:.1f}" width="8" height="14" fill="{INK}">'
              f'<animate attributeName="opacity" values="1;1;0;0" keyTimes="0;0.5;0.51;1" '
              f'dur="1s" repeatCount="indefinite"/></rect>')
