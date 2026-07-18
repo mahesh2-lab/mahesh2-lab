@@ -185,8 +185,16 @@ def render(data):
             match = re.search(r'<svg[^>]*>(.*)</svg>', bm_content, re.DOTALL | re.IGNORECASE)
             if match:
                 inner_bm = match.group(1)
-                scale = art_w / 1166.0
-                parts.append(f'<g id="bomberman-view" transform="translate({grid_left}, {grid_top + 10}) scale({scale})">')
+                # Remove the opaque background rect of the action's SVG
+                inner_bm = re.sub(r'<rect width="100%" height="100%" fill="[^"]*"/>', '', inner_bm)
+                
+                scale = STEP / 22.0
+                # Align centers: bomberman cells are slightly larger (13.6x13.6 scaled) vs our 12x12
+                # Also bomberman has an internal y=15 offset for its first cell.
+                x_offset = grid_left - 0.818
+                y_offset = grid_top - (15 * scale) - 0.818
+                
+                parts.append(f'<g id="bomberman-view" transform="translate({x_offset:.3f}, {y_offset:.3f}) scale({scale:.4f})">')
                 parts.append(inner_bm)
                 parts.append('</g>')
 
