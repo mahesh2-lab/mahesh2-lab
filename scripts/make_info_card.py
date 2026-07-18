@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "info-card.svg")
 STATIC = bool(os.environ.get("STATIC"))
 
-W, H = 480, 420
+W, H = 480, 462
 PAD = 20
 TITLEBAR_H = 30
 KEY_X = PAD
@@ -50,12 +50,14 @@ ROWS = [
     ("kv", "AI / ML", "LangChain, OpenAI, Gemini, Ollama"),
     ("kv", "Cloud", "Docker, AWS, Linux, Vercel, Render"),
     ("kv", "Database", "PostgreSQL, MongoDB, Redis, Prisma"),
+    ("kv", "Tools", "Git, Postman, Linux, GitHub Actions"),
     ("gap",),
     ("sec", "Highlights"),
     ("bul", "AI Infrastructure Monitoring Platform"),
     ("bul", "Deployment Platform (Vercel Clone)"),
     ("bul", "DevOps, Observability & Backend Systems"),
     ("bul", "Open Source & Continuous Learning"),
+    ("bul", "Passionate about System Architecture & AI"),
 ]
 
 
