@@ -18,7 +18,7 @@
 
 <table width="860">
 <tr>
-<td valign="top" width="452"><img src="./avi-ascii.svg?v=4" width="452" alt="Mahesh — ASCII portrait" /></td>
+<td valign="top" width="452"><img src="./avi-ascii.svg?v=7" width="452" alt="Mahesh — ASCII portrait" /></td>
 <td valign="top" width="408"><img src="./info-card.svg" width="408" alt="Mahesh — experience, stack, highlights" /></td>
 </tr>
 </table>
