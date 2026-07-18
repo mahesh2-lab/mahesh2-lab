@@ -58,11 +58,6 @@ ROWS = [
     ("bul", "DevOps, Observability & Backend Systems"),
     ("bul", "Open Source & Continuous Learning"),
     ("bul", "Passionate about System Architecture & AI"),
-    ("gap",),
-    ("sec", "Interests"),
-    ("bul", "Building robust AI-driven applications"),
-    ("bul", "Exploring cloud-native architectures"),
-    ("bul", "Exploring new web technologies"),
 ]
 
 
