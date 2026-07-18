@@ -40,6 +40,19 @@ jobs:
           github_user_name: ${{ github.repository_owner }}
           games: ${{ steps.pick_game.outputs.game }}
 
+      - name: Generate 3D Contribution Graph
+        uses: yoshi389111/github-profile-3d-contrib@0.7.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          USERNAME: ${{ github.repository_owner }}
+
+      - name: Generate ASCII portrait
+        run: |
+          if [ -f "source-photo.jpg" ]; then
+            python scripts/prep_photo.py source-photo.jpg
+            python scripts/make_ascii_svg.py
+          fi
+
       - name: Render animated contribution graph SVG
         env:
           CHOSEN_GAME: ${{ steps.pick_game.outputs.game }}
@@ -49,5 +62,5 @@ jobs:
       - name: Commit updated art
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh contribution graph [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg dist/*"
+          commit_message: "chore: refresh contribution graphs and portrait [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg dist/* profile-3d-contrib/* avi-ascii.svg source-prepped.png"
