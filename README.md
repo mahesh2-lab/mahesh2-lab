@@ -38,17 +38,6 @@
 
 <br>
 
-<h2 align="center">3D Contributions</h2>
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-green.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-green.svg">
-    <img alt="3D Contribution Graph" src="./profile-3d-contrib/profile-night-green.svg">
-  </picture>
-</p>
-
-<br>
-
 <table align="center" width="860">
   <tr>
     <td align="center" width="50%">

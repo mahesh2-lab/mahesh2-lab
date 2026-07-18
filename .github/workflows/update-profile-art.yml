@@ -46,15 +46,8 @@ jobs:
         run: |
           python scripts/render_heatmap_svg.py
 
-      - name: Generate 3D Contribution Graph
-        uses: yoshi389111/github-profile-3d-contrib@0.7.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          USERNAME: ${{ github.repository_owner }}
-
       - name: Commit updated art
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: refresh contribution graphs [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg dist/* profile-3d-contrib/*"
-
+          commit_message: "chore: refresh contribution graph [skip ci]"
+          file_pattern: "data/contributions.json contrib-heatmap.svg dist/*"
