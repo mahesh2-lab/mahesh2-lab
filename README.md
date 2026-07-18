@@ -51,8 +51,15 @@
 
 <h2 align="center">My 3D Model</h2>
 <p align="center">
-  <em>GitHub does not support rendering interactive 3D models directly inside the README.</em><br>
-  <a href="./model.stl"><b>👉 Click here to view the interactive 3D model!</b></a>
+  A customized 3D model representing my latest project iteration. You can interact with it directly in the viewer below!
+</p>
+<p align="center">
+  <a href="./model.stl">
+    <img src="./model.stl" alt="3D Model Viewer" width="600" />
+  </a>
+</p>
+<p align="center">
+  <em>(If the interactive viewer does not load, <a href="./model.stl">click here</a> to view the model directly. To provide a static fallback for mobile viewers, I recommend taking a screenshot of the model and replacing the <code>src="./model.stl"</code> with the path to your <code>preview.png</code> image.)</em>
 </p>
 
 <br>
