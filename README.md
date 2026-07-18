@@ -62,7 +62,7 @@
       <img src="https://raw.githubusercontent.com/mahesh2-lab/mahesh2-lab/output/pacman.svg" alt="Pacman Contribution Graph" />
     </td>
     <td align="center" width="50%">
-      <img src="https://raw.githubusercontent.com/mahesh2-lab/mahesh2-lab/output/bomberman.svg" alt="Bomberman Contribution Graph" />
+      <img src="" alt="Bomberman Contribution Graph" />
     </td>
   </tr>
 </table>
