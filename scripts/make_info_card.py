@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "info-card.svg")
 STATIC = bool(os.environ.get("STATIC"))
 
-W, H = 480, 376
+W, H = 480, 480
 PAD = 20
 TITLEBAR_H = 30
 KEY_X = PAD
@@ -39,20 +39,23 @@ ACCENT = "#22d3ee"
 # ("gap",)                     -> vertical space
 ROWS = [
     ("host",),
-    ("kv", "Now", "Software Engineer @ Dock.us"),
-    ("kv", "Prev", "Founding Engineer @ Turgon AI"),
-    ("kv", "Also", "SDE + Instructor @ AccioJob (YC'21)"),
-    ("kv", "Edu", "B.Tech CS, IIIT Delhi '24"),
+    ("kv", "Now", "Building Caïssa Monitoring Platform"),
+    ("kv", "Prev", "AI Resume Evaluation Platform"),
+    ("kv", "Also", "Full Stack Developer & Backend Engineer"),
+    ("kv", "Edu", "B.Tech CSE, PLITMS Buldhana ('26)"),
     ("gap",),
     ("sec", "Stack"),
-    ("kv", "Frontend", "React, Next.js, TypeScript, R3F"),
-    ("kv", "Backend", "Node, NestJS, GraphQL, Django"),
-    ("kv", "AI / ML", "LangChain, Vercel AI SDK, OpenAI"),
-    ("kv", "Cloud", "AWS, Docker, Vercel, Prisma"),
+    ("kv", "Frontend", "React, Next.js, TypeScript, Tailwind"),
+    ("kv", "Backend", "Node.js, Express, FastAPI, Python"),
+    ("kv", "AI / ML", "LangChain, OpenAI, Gemini, Ollama"),
+    ("kv", "Cloud", "Docker, AWS, Linux, Vercel, Render"),
+    ("kv", "Database", "PostgreSQL, MongoDB, Redis, Prisma"),
     ("gap",),
     ("sec", "Highlights"),
-    ("bul", "Taught 100,000+ developers to code"),
-    ("bul", "2 books · 100k+ podcast streams"),
+    ("bul", "AI Infrastructure Monitoring Platform"),
+    ("bul", "Deployment Platform (Vercel Clone)"),
+    ("bul", "DevOps, Observability & Backend Systems"),
+    ("bul", "Open Source & Continuous Learning"),
 ]
 
 
@@ -84,7 +87,7 @@ parts = [
 for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
     parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
 parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-             f'text-anchor="middle">avi@github: ~$ neofetch</text>')
+             f'text-anchor="middle">mahesh@github: ~$ neofetch</text>')
 
 y = TITLEBAR_H + 30
 for i, row in enumerate(ROWS):
@@ -94,7 +97,7 @@ for i, row in enumerate(ROWS):
         continue
     if kind == "host":
         inner = (f'<text x="{KEY_X}" y="{y:.1f}" font-size="14" font-weight="700">'
-                 f'<tspan fill="{GREEN}">avi</tspan><tspan fill="{MUTED}">@</tspan>'
+                 f'<tspan fill="{GREEN}">mahesh</tspan><tspan fill="{MUTED}">@</tspan>'
                  f'<tspan fill="{ACCENT}">github</tspan></text>'
                  f'<line x1="{KEY_X+96}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
                  f'stroke="{FRAME}" stroke-opacity="0.8"/>')
