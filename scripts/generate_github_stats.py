@@ -109,33 +109,23 @@ def generate_stats_svg(data, out="github-stats.svg"):
     spacing = 33
     for i, (icon, label, value) in enumerate(items):
         y = y_start + i * spacing
-        delay = i * 0.15 + 0.1
         svg_items += f'''
-        <g class="stat-row" style="animation-delay: {delay}s; --y: {y}px;">
+        <g transform="translate(25, {y})">
             <svg x="0" y="-12" viewBox="0 0 16 16" width="16" height="16" fill="{ICON_COLOR}">
                 {icon}
             </svg>
             <text class="stat-label" x="25" y="0">{label}</text>
-            <text class="stat-value" x="420" y="0" text-anchor="end">{value}</text>
+            <text class="stat-value" x="420" y="0" text-anchor="end" data-testid="{label.lower().split()[1]}">{value}</text>
         </g>
         '''
 
     svg = f'''<svg width="452" height="195" viewBox="0 0 452 195" fill="none" xmlns="http://www.w3.org/2000/svg">
     <style>
-        .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: {TITLE_COLOR}; animation: fadeIn 0.8s ease-in-out forwards; }}
+        .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: {TITLE_COLOR}; }}
         .stat-label {{ font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {TEXT_COLOR}; }}
         .stat-value {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: {VALUE_COLOR}; }}
-        .stat-row {{ opacity: 0; animation: slideUpFade 0.6s ease-out forwards; }}
-        @keyframes slideUpFade {{
-            0% {{ opacity: 0; transform: translate(25px, calc(var(--y, 0px) + 15px)); }}
-            100% {{ opacity: 1; transform: translate(25px, var(--y, 0px)); }}
-        }}
-        @keyframes fadeIn {{
-            0% {{ opacity: 0; }}
-            100% {{ opacity: 1; }}
-        }}
     </style>
-    <rect x="0.5" y="0.5" width="451" height="194" rx="4.5" fill="{BG}" stroke="{TEXT_COLOR}" stroke-width="1" stroke-opacity="0.3"/>
+    <rect x="0.5" y="0.5" width="451" height="194" rx="4.5" fill="{BG}" stroke="#e4e2e2" stroke-opacity="0"/>
     <text x="25" y="35" class="header">{USER}'s GitHub Stats</text>
     {svg_items}
 </svg>'''
@@ -158,40 +148,26 @@ def generate_langs_svg(data, out="top-langs.svg"):
     for i, l in enumerate(langs):
         y = y_start + i * spacing
         pct = (l["size"] / total_size) * 100
+        # Progress bar
         bar_w = 250
         bar_fill = (pct / 100) * bar_w
-        delay = i * 0.15 + 0.1
         
         svg_items += f'''
-        <g class="lang-row" style="animation-delay: {delay}s; --y: {y}px;">
+        <g transform="translate(25, {y})">
             <text class="lang-name" x="0" y="0">{l["name"]}</text>
             <text class="lang-pct" x="250" y="0" text-anchor="end">{pct:.1f}%</text>
             <rect x="0" y="8" width="{bar_w}" height="8" rx="4" fill="#30363d"/>
-            <rect class="lang-bar" x="0" y="8" width="{bar_fill}" height="8" rx="4" fill="{l["color"]}"/>
+            <rect x="0" y="8" width="{bar_fill}" height="8" rx="4" fill="{l["color"]}"/>
         </g>
         '''
 
     svg = f'''<svg width="300" height="235" viewBox="0 0 300 235" fill="none" xmlns="http://www.w3.org/2000/svg">
     <style>
-        .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: {TITLE_COLOR}; animation: fadeIn 0.8s ease-in-out forwards; }}
+        .header {{ font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: {TITLE_COLOR}; }}
         .lang-name {{ font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: {TEXT_COLOR}; }}
         .lang-pct {{ font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }}
-        .lang-row {{ opacity: 0; animation: slideUpFade 0.6s ease-out forwards; }}
-        .lang-bar {{ animation: growWidth 1s ease-out forwards; transform-origin: left; }}
-        @keyframes slideUpFade {{
-            0% {{ opacity: 0; transform: translate(25px, calc(var(--y, 0px) + 15px)); }}
-            100% {{ opacity: 1; transform: translate(25px, var(--y, 0px)); }}
-        }}
-        @keyframes growWidth {{
-            0% {{ transform: scaleX(0); }}
-            100% {{ transform: scaleX(1); }}
-        }}
-        @keyframes fadeIn {{
-            0% {{ opacity: 0; }}
-            100% {{ opacity: 1; }}
-        }}
     </style>
-    <rect x="0.5" y="0.5" width="299" height="234" rx="4.5" fill="{BG}" stroke="{TEXT_COLOR}" stroke-width="1" stroke-opacity="0.3"/>
+    <rect x="0.5" y="0.5" width="299" height="234" rx="4.5" fill="{BG}" stroke="#e4e2e2" stroke-opacity="0"/>
     <text x="25" y="35" class="header">Most Used Languages</text>
     {svg_items}
 </svg>'''
