@@ -25,6 +25,27 @@ data = get_data(USER)
 contribs = data["contributions"]
 total = data["total"]["lastYear"]
 
+current_streak = 0
+longest_streak = 0
+temp_streak = 0
+for c in contribs:
+    if c.get("count", 0) > 0:
+        temp_streak += 1
+        longest_streak = max(longest_streak, temp_streak)
+    else:
+        temp_streak = 0
+
+current_streak = 0
+c_reversed = list(reversed(contribs))
+if len(c_reversed) > 0 and c_reversed[0].get("count", 0) == 0:
+    c_reversed = c_reversed[1:]
+
+for c in c_reversed:
+    if c.get("count", 0) > 0:
+        current_streak += 1
+    else:
+        break
+
 # ---- layout ----
 CELL, GAP, RAD, LEFT, TOP = 13, 3, 2.5, 34, 24
 COLORS = ["#161b22", "#0e4429", "#006d32", "#26a641", "#39d353"]
@@ -75,7 +96,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewB
 <rect width="{W}" height="{H}" fill="none"/>
 {''.join(labels)}
 {''.join(rects)}
-<text class="total" x="{LEFT}" y="{H-6}">{total:,} contributions in the last year</text>
+<text class="total" x="{LEFT}" y="{H-6}">{total:,} contributions in the last year  •  Current Streak: {current_streak} days  •  Longest: {longest_streak} days</text>
 </svg>'''
 
 open(OUT, "w").write(svg)
