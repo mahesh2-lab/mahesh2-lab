@@ -36,10 +36,7 @@
 [![Instagram](https://img.shields.io/badge/Instagram-mahesh-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/)
 [![Live Terminal](https://img.shields.io/badge/⚡_Live_Terminal-mahesh2--lab.github.io-22d3ee?style=for-the-badge&logo=gnometerminal&logoColor=black)](https://mahesh2-lab.github.io)
 
-<br>
-
-
-<br>
+<h3><code>mahesh@github ~ $ ./stats.sh</code></h3>
 
 <table align="center" width="860">
   <tr>
