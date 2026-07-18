@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "info-card.svg")
 STATIC = bool(os.environ.get("STATIC"))
 
-W, H = 480, 462
+W, H = 480, 555
 PAD = 20
 TITLEBAR_H = 30
 KEY_X = PAD
@@ -58,6 +58,11 @@ ROWS = [
     ("bul", "DevOps, Observability & Backend Systems"),
     ("bul", "Open Source & Continuous Learning"),
     ("bul", "Passionate about System Architecture & AI"),
+    ("gap",),
+    ("sec", "Interests"),
+    ("bul", "Building robust AI-driven applications"),
+    ("bul", "Exploring cloud-native architectures"),
+    ("bul", "Exploring new web technologies"),
 ]
 
 
