@@ -103,6 +103,7 @@ def render(data):
 
     css = f"""
 :root {{
+  --bg-color: #ffffff;
   --text-muted: #57606a;
   --text-accent: #0969da;
   --text-green: #2da44e;
@@ -116,6 +117,7 @@ def render(data):
 }}
 @media (prefers-color-scheme: dark) {{
   :root {{
+    --bg-color: #0d1117;
     --text-muted: #7d8590;
     --text-accent: #2f81f7;
     --text-green: #39d353;
@@ -150,6 +152,7 @@ def render(data):
         f'#heatmap-view {{ animation: fadeOutView 5.5s forwards; }}\n'
         f'#bomberman-view {{ animation: fadeInView 5.5s forwards; opacity: 0; }}\n'
         f'</style>',
+        f'<rect width="{canvas_w}" height="{canvas_h}" fill="var(--bg-color)" rx="12"/>',
     ]
 
     grid_top = TOP_LABEL_H + 10
