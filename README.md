@@ -38,28 +38,15 @@
 
 <br>
 
-<h2 align="center">3D Contributions</h2>
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="./profile-3d-contrib/profile-night-green.svg">
-    <source media="(prefers-color-scheme: light)" srcset="./profile-3d-contrib/profile-green.svg">
-    <img alt="3D Contribution Graph" src="./profile-3d-contrib/profile-night-green.svg">
-  </picture>
-</p>
-
-<br>
-
 <h2 align="center">My 3D Model</h2>
 <p align="center">
-  A customized 3D model representing my latest project iteration. You can interact with it directly in the viewer below!
+  A simple 3D cube model. You can interact with it directly in the viewer below!
 </p>
 <p align="center">
-  ![3D Model Viewer](./model.stl)
+  ![My Model](./models/cube.stl)
 </p>
 
 <br>
-
-![Model Name](relative/path/to/model.stl)
 
 <table align="center" width="860">
   <tr>
