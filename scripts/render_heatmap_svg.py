@@ -98,7 +98,7 @@ def render(data):
             break
 
     canvas_w = PAD + LEFT_LABEL_W + art_w + PAD
-    stats_h = 88
+    stats_h = 40
     canvas_h = TOP_LABEL_H + art_h + stats_h + PAD
 
     css = f"""
@@ -215,29 +215,10 @@ def render(data):
                 parts.append(inner_bm)
                 parts.append('</g>')
 
-    sep_y = leg_y + CELL + 14
-    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="var(--text-muted)" stroke-opacity="0.25"/>')
-
-    cs = data["current_streak"]["length"]
-    ls = data["longest_streak"]["length"]
     total = data["total_contributions"]
-    best = data["best_day"]
-    rng = data["range"]
-
-    ly = sep_y + 24
-    # left column: big highlighted numbers; right column: context in muted
-    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="var(--text-green)">'
-                 f'<tspan font-weight="700">{total:,}</tspan>'
-                 f'<tspan fill="var(--text-muted)"> contributions in the last year</tspan></text>')
-    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="var(--text-muted)" text-anchor="end">'
-                 f'{rng["start"]} &#8594; {rng["end"]}</text>')
-    ly += 24
-    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="var(--text-muted)">current streak '
-                 f'<tspan fill="var(--text-accent)" font-weight="700">{cs} days</tspan>'
-                 f'<tspan fill="var(--text-muted)">   &#183;   longest </tspan>'
-                 f'<tspan fill="var(--text-accent)" font-weight="700">{ls} days</tspan></text>')
-    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="var(--text-muted)" text-anchor="end">'
-                 f'best day <tspan fill="var(--text-gold)" font-weight="700">{best["count"]}</tspan> on {best["date"]}</text>')
+    
+    parts.append(f'<text x="{grid_left}" y="{leg_y + CELL*0.8:.1f}" fill="var(--text-muted)" font-size="10">'
+                 f'{total:,} contributions in the last year</text>')
 
     parts.append("</svg>")
     return "".join(parts)
