@@ -38,9 +38,6 @@
 
 <br>
 
-A simple 3D cube model. You can interact with it directly in the viewer below!
-
-![My Model](./models/cube.stl)
 
 <br>
 
