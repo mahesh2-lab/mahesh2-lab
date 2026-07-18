@@ -41,20 +41,13 @@
 <table align="center" width="860">
   <tr>
     <td align="center" width="50%">
-      <img src="./github-stats.svg" alt="Mahesh's GitHub Stats" />
+      <img src="https://github-readme-stats.vercel.app/api?username=mahesh2-lab&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Mahesh's GitHub Stats" />
     </td>
     <td align="center" width="50%">
-      <img src="./top-langs.svg" alt="Top Languages" />
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mahesh2-lab&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Top Languages" />
     </td>
   </tr>
 </table>
-
-<br>
-
-<h2 align="center">3D Contributions</h2>
-<p align="center">
-  <img src="./profile-3d-contrib/profile-night-green.svg" alt="3D Contributions Graph" width="860" />
-</p>
 
 <br>
 
