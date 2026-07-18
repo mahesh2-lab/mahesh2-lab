@@ -38,13 +38,9 @@
 
 <br>
 
-<h2 align="center">My 3D Model</h2>
-<p align="center">
-  A simple 3D cube model. You can interact with it directly in the viewer below!
-</p>
-<p align="center">
-  ![My Model](./models/cube.stl)
-</p>
+A simple 3D cube model. You can interact with it directly in the viewer below!
+
+![My Model](./models/cube.stl)
 
 <br>
 
