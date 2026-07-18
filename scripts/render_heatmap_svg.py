@@ -27,9 +27,9 @@ LEFT_LABEL_W = 30
 TOP_LABEL_H = 20
 TITLEBAR_H = 30
 
-BG = "#0d1117"
-BG2 = "#0d1117"
-FRAME = "#30363d"
+BG = "#0a0e14"
+BG2 = "#0d1420"
+FRAME = "#1f6feb"
 MUTED = "#7d8590"
 TEXT = "#e6edf3"
 ACCENT = "#2f81f7"
@@ -99,7 +99,7 @@ def render(data):
 
     canvas_w = PAD + LEFT_LABEL_W + art_w + PAD
     stats_h = 88
-    canvas_h = TOP_LABEL_H + art_h + stats_h + PAD
+    canvas_h = TITLEBAR_H + TOP_LABEL_H + art_h + stats_h + PAD
 
     css = f"""
 :root {{
@@ -152,17 +152,28 @@ def render(data):
         f'#heatmap-view {{ animation: fadeOutView 5.5s forwards; }}\n'
         f'#bomberman-view {{ animation: fadeInView 5.5s forwards; opacity: 0; }}\n'
         f'</style>',
-        f'<rect width="{canvas_w}" height="{canvas_h}" fill="var(--bg-color)" rx="12"/>',
+        '<defs>'
+        f'<linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">'
+        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient>'
+        '</defs>',
+        f'<rect width="{canvas_w}" height="{canvas_h}" rx="12" fill="url(#hbg)"/>',
+        f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="12" '
+        f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>',
+        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
     ]
+    for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
+        parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
+    parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
+                 f'text-anchor="middle">mahesh@github: ~/contributions --graph</text>')
 
-    grid_top = TOP_LABEL_H + 10
+    grid_top = TITLEBAR_H + TOP_LABEL_H
     grid_left = PAD + LEFT_LABEL_W
 
     parts.append('<g id="heatmap-view">')
 
     for ci, label in month_labels:
         x = grid_left + ci * STEP
-        parts.append(f'<text x="{x}" y="{grid_top - 8}" fill="var(--text-muted)" font-size="10">{label}</text>')
+        parts.append(f'<text x="{x}" y="{TITLEBAR_H + 14}" fill="var(--text-muted)" font-size="10">{label}</text>')
 
     for wi, wname in [(1, "Mon"), (3, "Wed"), (5, "Fri")]:
         y = grid_top + wi * STEP + CELL * 0.78
