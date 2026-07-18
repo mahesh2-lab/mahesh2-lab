@@ -58,6 +58,7 @@ STAGGER = 0.11       # == ROW_DUR -> a single cursor sweeping down
 
 # ---- 1. sample the image into a COLS x ROWS grayscale grid ----------------
 im = Image.open(SRC).convert("L")               # grayscale
+im = ImageOps.invert(im)                        # INVERT for logos with dark backgrounds
 if SHARPEN:
     im = im.filter(ImageFilter.UnsharpMask(radius=2, percent=140, threshold=2))
 im = ImageEnhance.Brightness(im).enhance(BRIGHTNESS)
