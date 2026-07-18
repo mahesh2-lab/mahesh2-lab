@@ -93,7 +93,14 @@ parts.append(
 parts.append('<defs>'
              f'<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">'
              f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/>'
-             f'</linearGradient></defs>')
+             f'</linearGradient>'
+             f'<linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">'
+             f'<stop offset="0%" stop-color="#ff007a"/>'
+             f'<stop offset="33%" stop-color="#7928ca"/>'
+             f'<stop offset="66%" stop-color="#00dfd8"/>'
+             f'<stop offset="100%" stop-color="#ffbd2e"/>'
+             f'</linearGradient>'
+             '</defs>')
 
 parts.append(f'<rect width="{CANVAS_W}" height="{CANVAS_H}" rx="12" fill="url(#bg)"/>')
 parts.append(f'<rect x="0.5" y="0.5" width="{CANVAS_W-1}" height="{CANVAS_H-1}" rx="12" '
@@ -112,7 +119,7 @@ for ry, line in enumerate(rows_txt):
     row_y = art_top + ry * CELL_H
     delay = ry * STAGGER
     safe = html.escape(line)
-    text = (f'<text xml:space="preserve" x="{PAD}" y="{y:.1f}" fill="{INK}" '
+    text = (f'<text xml:space="preserve" x="{PAD}" y="{y:.1f}" fill="url(#text-grad)" '
             f'font-size="{font_size:.1f}" textLength="{ART_W}" lengthAdjust="spacing">{safe}</text>')
 
     if STATIC:
