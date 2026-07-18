@@ -96,10 +96,8 @@ parts.append('<defs>'
              f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/>'
              f'</linearGradient>'
              f'<linearGradient id="text-grad" x1="0%" y1="0%" x2="100%" y2="0%">'
-             f'<stop offset="0%" stop-color="#ff007a"/>'
-             f'<stop offset="33%" stop-color="#7928ca"/>'
-             f'<stop offset="66%" stop-color="#00dfd8"/>'
-             f'<stop offset="100%" stop-color="#ffbd2e"/>'
+             f'<stop offset="0%" stop-color="#58a6ff"/>'
+             f'<stop offset="100%" stop-color="#bc8cff"/>'
              f'</linearGradient>'
              '</defs>')
 
