@@ -53,13 +53,4 @@
   </tr>
 </table>
 
-<br>
-
-<h2 align="center">Bomberman Contributions</h2>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/mahesh2-lab/mahesh2-lab/output/bomberman-contribution-graph-dark.svg" alt="Bomberman Contribution Graph" />
-</p>
-
-<br>
-
 </div>
