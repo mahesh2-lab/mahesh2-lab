@@ -42,7 +42,7 @@
   <tr>
     <td align="center" width="50%">
       <a href="https://www.readmecodegen.com/custom-github-card-generator">
-        <img src="https://www.readmecodegen.com/api/github-stats/svg?username=mahesh2-lab&repos=false&followers=false&following=false" alt="Mahesh's GitHub Stats" />
+        <img src="https://www.readmecodegen.com/api/github-stats/svg?username=mahesh2-lab&repos=true&followers=true&following=true" alt="Mahesh's GitHub Stats" />
       </a>
     </td>
     <td align="center" width="50%">
