@@ -74,7 +74,7 @@ TITLEBAR_H = 30
 W = max(860, PAD + 30 + NW*(CELL+GAP) + PAD)
 TOP = TITLEBAR_H + PAD + 15
 LEFT = (W - (NW*(CELL+GAP))) // 2 + 10
-H = TOP + 7*(CELL+GAP) + 15 + 80
+H = TOP + 7*(CELL+GAP) + 15 + 100
 
 REVEAL, DUR = 3.6, 0.55
 maxorder = (NW-1) + 6*0.55
