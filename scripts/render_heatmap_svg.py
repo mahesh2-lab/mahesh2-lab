@@ -104,12 +104,9 @@ def render(data):
     css = f"""
 @keyframes cell {{
   0%   {{ opacity: 0; transform: translateY(-6px); }}
-  10%  {{ opacity: 1; transform: translateY(0); }}
-  80%  {{ opacity: 1; transform: translateY(0); }}
-  90%  {{ opacity: 0; transform: translateY(-6px); }}
-  100% {{ opacity: 0; transform: translateY(-6px); }}
+  100% {{ opacity: 1; transform: translateY(0); }}
 }}
-.c {{ opacity: 0; animation: cell 8s cubic-bezier(.2,.8,.2,1) infinite; }}
+.c {{ opacity: 0; animation: cell {CELL_DUR:.2f}s cubic-bezier(.2,.8,.2,1) both; }}
 """.strip()
 
     parts = [
@@ -198,6 +195,6 @@ def render(data):
 if __name__ == "__main__":
     data = json.load(open(IN_PATH))
     svg = render(data)
-    with open(OUT_PATH, "w", encoding="utf-8") as f:
+    with open(OUT_PATH, "w") as f:
         f.write(svg)
     print(f"wrote {OUT_PATH} ({len(svg)} bytes)")
