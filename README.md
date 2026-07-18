@@ -5,7 +5,7 @@
      python scripts/make_ascii_svg.py ; info panel: python scripts/make_info_card.py -->
 
 <img src="./contrib-heatmap.svg" width="860" alt="Avi's GitHub contribution graph — auto-refreshed daily" />     
-<table style="margin-top:'12px';">
+<table style="margin-top:'36px';">
 <tr>
 <td valign="top"><img src="./avi-ascii.svg" width="370" alt="Avi Vashishta — ASCII portrait" /></td>
 <td valign="top"><img src="./info-card.svg" width="490" alt="Avi Vashishta — experience, stack, highlights" /></td>
