@@ -44,7 +44,7 @@ jobs:
       - name: Generate ASCII portrait
         run: |
           if [ -f "source-photo.jpg" ]; then
-            python scripts/prep_photo.py source-photo.jpg
+            # python scripts/prep_photo.py source-photo.jpg
             python scripts/make_ascii_svg.py
           fi
 
