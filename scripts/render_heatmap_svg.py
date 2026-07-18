@@ -99,9 +99,35 @@ def render(data):
 
     canvas_w = PAD + LEFT_LABEL_W + art_w + PAD
     stats_h = 88
-    canvas_h = TITLEBAR_H + TOP_LABEL_H + art_h + stats_h + PAD
+    canvas_h = TOP_LABEL_H + art_h + stats_h + PAD
 
     css = f"""
+:root {{
+  --text-muted: #57606a;
+  --text-accent: #0969da;
+  --text-green: #2da44e;
+  --text-gold: #bf8700;
+  --lvl-0: #ebedf0;
+  --lvl-1: #9be9a8;
+  --lvl-2: #40c463;
+  --lvl-3: #30a14e;
+  --lvl-4: #216e39;
+  --lvl-5: #000000;
+}}
+@media (prefers-color-scheme: dark) {{
+  :root {{
+    --text-muted: #7d8590;
+    --text-accent: #2f81f7;
+    --text-green: #39d353;
+    --text-gold: #e3b341;
+    --lvl-0: #161b22;
+    --lvl-1: #0e4429;
+    --lvl-2: #006d32;
+    --lvl-3: #26a641;
+    --lvl-4: #39d353;
+    --lvl-5: #69f0a0;
+  }}
+}}
 @keyframes cell {{
   0%   {{ opacity: 0; transform: translateY(-6px); }}
   100% {{ opacity: 1; transform: translateY(0); }}
@@ -112,7 +138,7 @@ def render(data):
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{canvas_w}" height="{canvas_h}" '
         f'viewBox="0 0 {canvas_w} {canvas_h}" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">',
-        f'<style>{css}\n'
+        f'<style>\n{css}\n'
         f'@keyframes fadeOutView {{\n'
         f'  0%, 90% {{ opacity: 1; }}\n'
         f'  100% {{ opacity: 0; visibility: hidden; }}\n'
@@ -124,32 +150,20 @@ def render(data):
         f'#heatmap-view {{ animation: fadeOutView 5.5s forwards; }}\n'
         f'#bomberman-view {{ animation: fadeInView 5.5s forwards; opacity: 0; }}\n'
         f'</style>',
-        '<defs>'
-        f'<linearGradient id="hbg" x1="0" y1="0" x2="0" y2="1">'
-        f'<stop offset="0" stop-color="{BG2}"/><stop offset="1" stop-color="{BG}"/></linearGradient>'
-        '</defs>',
-        f'<rect width="{canvas_w}" height="{canvas_h}" rx="12" fill="url(#hbg)"/>',
-        f'<rect x="0.5" y="0.5" width="{canvas_w-1}" height="{canvas_h-1}" rx="12" '
-        f'fill="none" stroke="{FRAME}" stroke-width="1" stroke-opacity="0.55"/>',
-        f'<line x1="0" y1="{TITLEBAR_H}" x2="{canvas_w}" y2="{TITLEBAR_H}" stroke="{FRAME}" stroke-opacity="0.35"/>',
     ]
-    for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
-        parts.append(f'<circle cx="{PAD + i*16}" cy="{TITLEBAR_H/2}" r="5" fill="{dotcol}"/>')
-    parts.append(f'<text x="{canvas_w/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
-                 f'text-anchor="middle">virendra@github: ~/contributions --graph</text>')
 
-    grid_top = TITLEBAR_H + TOP_LABEL_H
+    grid_top = TOP_LABEL_H + 10
     grid_left = PAD + LEFT_LABEL_W
 
     parts.append('<g id="heatmap-view">')
 
     for ci, label in month_labels:
         x = grid_left + ci * STEP
-        parts.append(f'<text x="{x}" y="{TITLEBAR_H + 14}" fill="{MUTED}" font-size="10">{label}</text>')
+        parts.append(f'<text x="{x}" y="{grid_top - 8}" fill="var(--text-muted)" font-size="10">{label}</text>')
 
     for wi, wname in [(1, "Mon"), (3, "Wed"), (5, "Fri")]:
         y = grid_top + wi * STEP + CELL * 0.78
-        parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="{MUTED}" font-size="9">{wname}</text>')
+        parts.append(f'<text x="{PAD}" y="{y:.1f}" fill="var(--text-muted)" font-size="9">{wname}</text>')
 
     # the boxes -- each a rounded rect, diagonal slide-down reveal (once, freeze)
     for ci, column in enumerate(grid):
@@ -163,19 +177,19 @@ def render(data):
             plural = "s" if count != 1 else ""
             parts.append(
                 f'<rect class="c" x="{gx}" y="{gy}" width="{CELL}" height="{CELL}" rx="2.5" '
-                f'fill="{PALETTE[lvl]}" style="animation-delay:{delay:.3f}s">'
+                f'fill="var(--lvl-{lvl})" style="animation-delay:{delay:.3f}s">'
                 f'<title>{date_s}: {count} contribution{plural}</title></rect>'
             )
 
     # legend: Less [][][][][] More (bottom-right of the grid)
     leg_y = grid_top + art_h + 6
     leg_x = canvas_w - PAD - (len(PALETTE) * (CELL - 1) + 70)
-    parts.append(f'<text x="{leg_x}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10" text-anchor="end">Less</text>')
+    parts.append(f'<text x="{leg_x}" y="{leg_y + CELL*0.8:.1f}" fill="var(--text-muted)" font-size="10" text-anchor="end">Less</text>')
     lx = leg_x + 8
-    for lvl, color in enumerate(PALETTE):
-        parts.append(f'<rect x="{lx}" y="{leg_y}" width="{CELL-1}" height="{CELL-1}" rx="2.2" fill="{color}"/>')
+    for lvl in range(len(PALETTE)):
+        parts.append(f'<rect x="{lx}" y="{leg_y}" width="{CELL-1}" height="{CELL-1}" rx="2.2" fill="var(--lvl-{lvl})"/>')
         lx += CELL
-    parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL*0.8:.1f}" fill="{MUTED}" font-size="10">More</text>')
+    parts.append(f'<text x="{lx + 4}" y="{leg_y + CELL*0.8:.1f}" fill="var(--text-muted)" font-size="10">More</text>')
     
     parts.append('</g>')
     
@@ -202,7 +216,7 @@ def render(data):
                 parts.append('</g>')
 
     sep_y = leg_y + CELL + 14
-    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="{FRAME}" stroke-opacity="0.25"/>')
+    parts.append(f'<line x1="0" y1="{sep_y}" x2="{canvas_w}" y2="{sep_y}" stroke="var(--text-muted)" stroke-opacity="0.25"/>')
 
     cs = data["current_streak"]["length"]
     ls = data["longest_streak"]["length"]
@@ -212,18 +226,18 @@ def render(data):
 
     ly = sep_y + 24
     # left column: big highlighted numbers; right column: context in muted
-    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{GREEN}">'
+    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="var(--text-green)">'
                  f'<tspan font-weight="700">{total:,}</tspan>'
-                 f'<tspan fill="{MUTED}"> contributions in the last year</tspan></text>')
-    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="{MUTED}" text-anchor="end">'
+                 f'<tspan fill="var(--text-muted)"> contributions in the last year</tspan></text>')
+    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="var(--text-muted)" text-anchor="end">'
                  f'{rng["start"]} &#8594; {rng["end"]}</text>')
     ly += 24
-    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="{MUTED}">current streak '
-                 f'<tspan fill="{ACCENT}" font-weight="700">{cs} days</tspan>'
-                 f'<tspan fill="{MUTED}">   &#183;   longest </tspan>'
-                 f'<tspan fill="{ACCENT}" font-weight="700">{ls} days</tspan></text>')
-    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="{MUTED}" text-anchor="end">'
-                 f'best day <tspan fill="{GOLD}" font-weight="700">{best["count"]}</tspan> on {best["date"]}</text>')
+    parts.append(f'<text x="{PAD}" y="{ly}" font-size="13" fill="var(--text-muted)">current streak '
+                 f'<tspan fill="var(--text-accent)" font-weight="700">{cs} days</tspan>'
+                 f'<tspan fill="var(--text-muted)">   &#183;   longest </tspan>'
+                 f'<tspan fill="var(--text-accent)" font-weight="700">{ls} days</tspan></text>')
+    parts.append(f'<text x="{canvas_w - PAD}" y="{ly}" font-size="12" fill="var(--text-muted)" text-anchor="end">'
+                 f'best day <tspan fill="var(--text-gold)" font-weight="700">{best["count"]}</tspan> on {best["date"]}</text>')
 
     parts.append("</svg>")
     return "".join(parts)
