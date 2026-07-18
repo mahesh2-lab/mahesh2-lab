@@ -41,10 +41,10 @@
 <table align="center" width="860">
   <tr>
     <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api?username=mahesh2-lab&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Mahesh's GitHub Stats" />
+      <img src="./github-stats.svg" alt="Mahesh's GitHub Stats" />
     </td>
     <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mahesh2-lab&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117" alt="Top Languages" />
+      <img src="./top-langs.svg" alt="Top Languages" />
     </td>
   </tr>
 </table>
