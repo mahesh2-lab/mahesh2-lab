@@ -3,4 +3,4 @@ beautifulsoup4==4.12.3
 opencv-python-headless
 Pillow
 numpy
-rembg
+rembg[cpu]
