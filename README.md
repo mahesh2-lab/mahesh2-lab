@@ -9,17 +9,17 @@
 
 <h3><code>mahesh@github ~ $ ./contributions.sh</code></h3>
 
-<img src="./contrib-heatmap.svg" width="860" alt="Mahesh's GitHub contribution graph — auto-refreshed daily" />
+<img src="./contrib-heatmap.svg?v=6" width="860" alt="Mahesh's GitHub contribution graph — auto-refreshed daily" />
 
 <br>
 <br>
 
 <h3><code>mahesh@github ~ $ whoami</code></h3>
 
-<table width="860">
+<table width="860"> 
 <tr>
 <td valign="top" width="452"><img src="./avi-ascii.svg?v=7" width="452" alt="Mahesh — ASCII portrait" /></td>
-<td valign="top" width="408"><img src="./info-card.svg" width="408" alt="Mahesh — experience, stack, highlights" /></td>
+<td valign="top" width="408"><img src="./info-card.svg?v=3" width="408" alt="Mahesh — experience, stack, highlights" /></td>
 </tr>
 </table>
 
