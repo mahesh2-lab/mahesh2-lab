@@ -16,10 +16,10 @@
 
 <h3><code>mahesh@github ~ $ whoami</code></h3>
 
-<table>
+<table width="860">
 <tr>
-<td valign="top"><img src="./avi-ascii.svg" width="452" alt="Mahesh — ASCII portrait" /></td>
-<td valign="top"><img src="./info-card.svg" width="408" alt="Mahesh — experience, stack, highlights" /></td>
+<td valign="top" width="452"><img src="./avi-ascii.svg" width="452" alt="Mahesh — ASCII portrait" /></td>
+<td valign="top" width="408"><img src="./info-card.svg" width="408" alt="Mahesh — experience, stack, highlights" /></td>
 </tr>
 </table>
 
