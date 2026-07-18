@@ -14,12 +14,12 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "..", "info-card.svg")
 STATIC = bool(os.environ.get("STATIC"))
 
-W, H = 480, 555
+W, H = 840, 895
 PAD = 20
 TITLEBAR_H = 30
-KEY_X = PAD
-VAL_X = PAD + 92
-LINE_H = 20.5
+KEY_X = 40
+VAL_X = KEY_X + 160
+LINE_H = 36
 
 BG = "#0a0e14"
 BG2 = "#0d1420"
@@ -96,32 +96,32 @@ for i, dotcol in enumerate(["#ff5f56", "#ffbd2e", "#27c93f"]):
 parts.append(f'<text x="{W/2}" y="{TITLEBAR_H/2 + 4}" fill="{MUTED}" font-size="12" '
              f'text-anchor="middle">mahesh@github: ~$ neofetch</text>')
 
-y = TITLEBAR_H + 30
+y = TITLEBAR_H + 50
 for i, row in enumerate(ROWS):
     kind = row[0]
     if kind == "gap":
         y += LINE_H * 0.5
         continue
     if kind == "host":
-        inner = (f'<text x="{KEY_X}" y="{y:.1f}" font-size="14" font-weight="700">'
+        inner = (f'<text x="{KEY_X}" y="{y:.1f}" font-size="24" font-weight="700">'
                  f'<tspan fill="{GREEN}">mahesh</tspan><tspan fill="{MUTED}">@</tspan>'
                  f'<tspan fill="{ACCENT}">github</tspan></text>'
-                 f'<line x1="{KEY_X+96}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
+                 f'<line x1="{KEY_X+168}" y1="{y-8:.1f}" x2="{W-40}" y2="{y-8:.1f}" '
                  f'stroke="{FRAME}" stroke-opacity="0.8"/>')
     elif kind == "sec":
         title = esc(row[1])
-        inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{SECTION}" font-size="12.5" font-weight="700">'
+        inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{SECTION}" font-size="22" font-weight="700">'
                  f'&#8212; {title}</text>'
-                 f'<line x1="{KEY_X + 12 + len(row[1])*8}" y1="{y-4:.1f}" x2="{W-PAD}" y2="{y-4:.1f}" '
+                 f'<line x1="{KEY_X + 21 + len(row[1])*14}" y1="{y-8:.1f}" x2="{W-40}" y2="{y-8:.1f}" '
                  f'stroke="{FRAME}" stroke-opacity="0.8"/>')
     elif kind == "kv":
         key, val = esc(row[1]), esc(row[2])
-        inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{KEY}" font-size="12.5" font-weight="700">{key}</text>'
-                 f'<text x="{VAL_X}" y="{y:.1f}" fill="{INK}" font-size="12.5">{val}</text>')
+        inner = (f'<text x="{KEY_X}" y="{y:.1f}" fill="{KEY}" font-size="22" font-weight="700">{key}</text>'
+                 f'<text x="{VAL_X}" y="{y:.1f}" fill="{INK}" font-size="22">{val}</text>')
     elif kind == "bul":
         txt = esc(row[1])
-        inner = (f'<circle cx="{KEY_X+3}" cy="{y-4:.1f}" r="2.5" fill="{GREEN}"/>'
-                 f'<text x="{KEY_X+14}" y="{y:.1f}" fill="{INK}" font-size="12.5">{txt}</text>')
+        inner = (f'<circle cx="{KEY_X+5}" cy="{y-7:.1f}" r="4.5" fill="{GREEN}"/>'
+                 f'<text x="{KEY_X+25}" y="{y:.1f}" fill="{INK}" font-size="22">{txt}</text>')
     else:
         continue
     parts.append(rise(inner, i))

@@ -18,8 +18,8 @@
 
 <table width="860"> 
 <tr>
-<td valign="top" width="452"><img src="./avi-ascii.svg?v=7" width="452" alt="Mahesh — ASCII portrait" /></td>
-<td valign="top" width="408"><img src="./info-card.svg?v=3" width="408" alt="Mahesh — experience, stack, highlights" /></td>
+<td valign="top" width="430"><img src="./avi-ascii.svg?v=8" width="430" alt="Mahesh — ASCII portrait" /></td>
+<td valign="top" width="430"><img src="./info-card.svg?v=4" width="430" alt="Mahesh — experience, stack, highlights" /></td>
 </tr>
 </table>
 
