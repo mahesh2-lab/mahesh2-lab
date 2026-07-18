@@ -18,42 +18,42 @@
             100% { opacity: 1; }
         }
     </style>
-    <rect x="0.5" y="0.5" width="299" height="234" rx="4.5" fill="#0d1117" stroke="#e4e2e2" stroke-opacity="0"/>
+    <rect x="0.5" y="0.5" width="299" height="234" rx="4.5" fill="#0d1117" stroke="#38bdae" stroke-width="1" stroke-opacity="0.3"/>
     <text x="25" y="35" class="header">Most Used Languages</text>
     
         <g class="lang-row" style="animation-delay: 0.1s; --y: 65px;">
-            <text class="lang-name" x="0" y="0">HTML</text>
-            <text class="lang-pct" x="250" y="0" text-anchor="end">57.1%</text>
+            <text class="lang-name" x="0" y="0">TypeScript</text>
+            <text class="lang-pct" x="250" y="0" text-anchor="end">35.7%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect class="lang-bar" x="0" y="8" width="142.7707173488001" height="8" rx="4" fill="#e34c26"/>
+            <rect class="lang-bar" x="0" y="8" width="89.28571428571429" height="8" rx="4" fill="#3178c6"/>
         </g>
         
         <g class="lang-row" style="animation-delay: 0.25s; --y: 97px;">
-            <text class="lang-name" x="0" y="0">TypeScript</text>
-            <text class="lang-pct" x="250" y="0" text-anchor="end">23.0%</text>
+            <text class="lang-name" x="0" y="0">Python</text>
+            <text class="lang-pct" x="250" y="0" text-anchor="end">28.6%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect class="lang-bar" x="0" y="8" width="57.44771205980504" height="8" rx="4" fill="#3178c6"/>
+            <rect class="lang-bar" x="0" y="8" width="71.42857142857143" height="8" rx="4" fill="#3572A5"/>
         </g>
         
         <g class="lang-row" style="animation-delay: 0.4s; --y: 129px;">
             <text class="lang-name" x="0" y="0">JavaScript</text>
-            <text class="lang-pct" x="250" y="0" text-anchor="end">12.7%</text>
+            <text class="lang-pct" x="250" y="0" text-anchor="end">19.0%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect class="lang-bar" x="0" y="8" width="31.65399490699275" height="8" rx="4" fill="#f1e05a"/>
+            <rect class="lang-bar" x="0" y="8" width="47.61904761904761" height="8" rx="4" fill="#f1e05a"/>
         </g>
         
         <g class="lang-row" style="animation-delay: 0.5499999999999999s; --y: 161px;">
-            <text class="lang-name" x="0" y="0">Python</text>
-            <text class="lang-pct" x="250" y="0" text-anchor="end">5.2%</text>
+            <text class="lang-name" x="0" y="0">HTML</text>
+            <text class="lang-pct" x="250" y="0" text-anchor="end">9.5%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect class="lang-bar" x="0" y="8" width="13.027377756789171" height="8" rx="4" fill="#3572A5"/>
+            <rect class="lang-bar" x="0" y="8" width="23.809523809523807" height="8" rx="4" fill="#e34c26"/>
         </g>
         
         <g class="lang-row" style="animation-delay: 0.7s; --y: 193px;">
             <text class="lang-name" x="0" y="0">CSS</text>
-            <text class="lang-pct" x="250" y="0" text-anchor="end">2.0%</text>
+            <text class="lang-pct" x="250" y="0" text-anchor="end">7.1%</text>
             <rect x="0" y="8" width="250" height="8" rx="4" fill="#30363d"/>
-            <rect class="lang-bar" x="0" y="8" width="5.100197927612942" height="8" rx="4" fill="#663399"/>
+            <rect class="lang-bar" x="0" y="8" width="17.857142857142858" height="8" rx="4" fill="#563d7c"/>
         </g>
         
 </svg>
