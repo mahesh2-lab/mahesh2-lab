@@ -53,8 +53,11 @@ jobs:
         run: |
           python scripts/render_heatmap_svg.py
 
+      - name: Generate info card SVG
+        run: python scripts/make_info_card.py
+
       - name: Commit updated art
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: refresh contribution graphs and portrait [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg dist/* avi-ascii.svg source-prepped.png"
+          file_pattern: "data/contributions.json contrib-heatmap.svg dist/* avi-ascii.svg source-prepped.png info-card.svg"
