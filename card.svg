@@ -1,0 +1,553 @@
+<svg width="944" height="632" viewBox="0 0 944 632" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    /* Subtle Hover/Interactive Styles for compatible rendering environments */
+    .card-bg { transition: fill 0.3s, stroke 0.3s; }
+    .card-group:hover .card-bg { fill: #161b22; stroke: #444c56; }
+    .lang-bar { transition: width 0.8s ease-in-out; }
+    
+    .title-text { font: 600 22px 'Segoe UI', Ubuntu, Sans-Serif; fill: #f0f6fc; }
+    .regular-text { font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9; }
+    .semi-text { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #f0f6fc; }
+    .muted-text { font: 500 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #8b949e; }
+    .stat-val { font: 700 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #f0f6fc; }
+    .rank-title { font: 800 28px 'Segoe UI', Ubuntu, Sans-Serif; }
+  </style>
+
+  <defs>
+
+<!-- Background Radial Gradients for Premium Depth Glow -->
+<radialGradient id="bg-glow-1" cx="0%" cy="0%" r="60%">
+  <stop offset="0%" stop-color="#1f293d" stop-opacity="0.4" />
+  <stop offset="100%" stop-color="#0d1117" stop-opacity="0" />
+</radialGradient>
+<radialGradient id="bg-glow-2" cx="100%" cy="100%" r="60%">
+  <stop offset="0%" stop-color="#153321" stop-opacity="0.35" />
+  <stop offset="100%" stop-color="#0d1117" stop-opacity="0" />
+</radialGradient>
+<radialGradient id="radial-accent" cx="50%" cy="50%" r="50%">
+  <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.25" />
+  <stop offset="100%" stop-color="#58a6ff" stop-opacity="0" />
+</radialGradient>
+
+<!-- Component Linear Gradients -->
+<linearGradient id="primary-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#1f6feb" />
+  <stop offset="100%" stop-color="#8957e5" />
+</linearGradient>
+<linearGradient id="rank-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+  <stop offset="0%" stop-color="#ff7b72" />
+  <stop offset="50%" stop-color="#a5d6ff" />
+  <stop offset="100%" stop-color="#ff9bce" />
+</linearGradient>
+<linearGradient id="border-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#30363d" />
+  <stop offset="50%" stop-color="#21262d" />
+  <stop offset="100%" stop-color="#30363d" />
+</linearGradient>
+<linearGradient id="active-streak" x1="0%" y1="0%" x2="100%" y2="100%">
+  <stop offset="0%" stop-color="#f97316" />
+  <stop offset="100%" stop-color="#e11d48" />
+</linearGradient>
+
+<!-- Glassmorphic Drop Shadow Filters -->
+<filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+  <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5"/>
+</filter>
+<filter id="glow-strong" x="-20%" y="-20%" width="140%" height="140%">
+  <feGaussianBlur stdDeviation="8" result="blur" />
+  <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+</filter>
+
+<!-- Clip Paths -->
+<clipPath id="avatar-clip">
+  <rect x="0" y="0" width="88" height="88" rx="22" />
+</clipPath>
+<clipPath id="org-clip">
+  <rect x="0" y="0" width="28" height="28" rx="6" />
+</clipPath>
+
+<!-- SVG Icon Symbols library for reuse -->
+<g id="icon-company">
+  <path d="M16 22V4a2 2 0 00-2-2H2a2 2 0 00-2 2v18h22V12h-6v10M4 6h2v2H4V6zm0 4h2v2H4v-2zm0 4h2v2H4v-2zm0 4h2v2H4v-2zm6-12h2v2h-2V6zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm0 4h2v2h-2v-2zm12-4h2v2h-2v-2zm0 4h2v2h-2v-2z" stroke="#8b949e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</g>
+<g id="icon-location">
+  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+</g>
+<g id="icon-link">
+  <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71" fill="none" stroke="#8b949e" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71" fill="none" stroke="#8b949e" stroke-width="1.5" stroke-linecap="round"/>
+</g>
+<g id="icon-calendar">
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="16" y1="2" x2="16" y2="6" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="8" y1="2" x2="8" y2="6" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="3" y1="10" x2="21" y2="10" stroke="#8b949e" stroke-width="1.5"/>
+</g>
+<g id="icon-star">
+  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="none" stroke="#8b949e" stroke-width="1.5" stroke-linejoin="round"/>
+</g>
+<g id="icon-fork">
+  <circle cx="18" cy="18" r="3" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+  <circle cx="6" cy="6" r="3" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+  <circle cx="6" cy="18" r="3" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+  <path d="M18 15V9a4 4 0 00-4-4H9" fill="none" stroke="#8b949e" stroke-width="1.5"/>
+  <line x1="6" y1="9" x2="6" y2="15" stroke="#8b949e" stroke-width="1.5"/>
+</g>
+</defs>
+
+<!-- Background Card Base -->
+<rect width="944" height="632" rx="16" fill="#0d1117" stroke="url(#border-gradient)" stroke-width="1.5" />
+<rect width="944" height="632" rx="16" fill="url(#bg-glow-1)" />
+<rect width="944" height="632" rx="16" fill="url(#bg-glow-2)" />
+
+<!-- User Avatar Frame & Clip -->
+<g transform="translate(24, 28)">
+  <!-- Avatar container glowing background ring -->
+  <rect x="-3" y="-3" width="94" height="94" rx="25" fill="none" stroke="url(#primary-gradient)" stroke-width="3" filter="url(#shadow)" />
+  <!-- Render clipped profile picture -->
+  <g transform="translate(0, 0)">
+    <!-- Placeholder placeholder/image. Templates replace the href. -->
+    <image href="https://github.com/mahesh2-lab.png" width="88" height="88" clip-path="url(#avatar-clip)" />
+  </g>
+  <!-- Online Indicator Status Dot -->
+  <circle cx="82" cy="82" r="8" fill="#39d353" stroke="#161b22" stroke-width="2" />
+</g>
+
+<!-- Name & Handle Header -->
+<text x="24" y="152" class="title-text" font-size="22">Mahesh</text>
+<text x="24" y="174" class="regular-text" font-size="14" fill="#8b949e">@mahesh2-lab</text>
+
+<!-- Professional User Bio (Structured for Multi-line compatibility) -->
+<text x="24" y="210" class="regular-text" font-size="13" fill="#c9d1d9">
+  <tspan x="24" dy="0">Full Stack Developer &amp; Backend Engineer</tspan>
+  <tspan x="24" dy="18">Building Caïssa Monitoring Platform</tspan>
+</text>
+
+<!-- Divider Line -->
+<line x1="24" y1="256" x2="256" y2="256" stroke="#21262d" stroke-width="1" />
+
+<!-- Metadata Details Block with Crisp Standard SVGs -->
+<!-- Company -->
+<g transform="translate(24, 274)">
+  <use href="#icon-company" x="0" y="0" width="16" height="16" />
+  <text x="26" y="13" class="regular-text" font-size="13" fill="#c9d1d9">Caïssa</text>
+</g>
+<!-- Location -->
+<g transform="translate(24, 302)">
+  <use href="#icon-location" x="0" y="0" width="16" height="16" />
+  <text x="26" y="13" class="regular-text" font-size="13" fill="#c9d1d9">Buldhana, India</text>
+</g>
+<!-- Personal/Dev Website -->
+<g transform="translate(24, 330)">
+  <use href="#icon-link" x="0" y="0" width="16" height="16" />
+  <text x="26" y="13" class="semi-text" font-size="13" fill="#58a6ff">mahesh2-lab.github.io</text>
+</g>
+<!-- Joined Date -->
+<g transform="translate(24, 358)">
+  <use href="#icon-calendar" x="0" y="0" width="16" height="16" />
+  <text x="26" y="13" class="regular-text" font-size="13" fill="#8b949e">Joined Jul 2025</text>
+</g>
+
+<!-- Divider Line -->
+<line x1="24" y1="392" x2="256" y2="392" stroke="#21262d" stroke-width="1" />
+
+<!-- Dynamic Social Indicators (Followers, Following, Stars) -->
+<g transform="translate(24, 412)">
+  <text x="0" y="12" class="semi-text" font-size="15" fill="#f0f6fc">42</text>
+  <text x="0" y="28" class="muted-text" font-size="11">FOLLOWERS</text>
+
+  <text x="84" y="12" class="semi-text" font-size="15" fill="#f0f6fc">28</text>
+  <text x="84" y="28" class="muted-text" font-size="11">FOLLOWING</text>
+
+  <text x="168" y="12" class="semi-text" font-size="15" fill="#f0f6fc">128</text>
+  <text x="168" y="28" class="muted-text" font-size="11">STARS REC.</text>
+</g>
+
+<!-- Divider Line -->
+<line x1="24" y1="464" x2="256" y2="464" stroke="#21262d" stroke-width="1" />
+
+<!-- Professional Organizations Badge Grid -->
+<g transform="translate(24, 480)">
+  <text x="0" y="10" class="muted-text" font-size="11">ORGANIZATIONS</text>
+  
+  <!-- Organization Logo Stack with fallback rendering shapes -->
+  <g transform="translate(0, 20)">
+    <!-- Org 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="28" height="28" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" width="28" height="28" clip-path="url(#org-clip)" />
+    </g>
+    <!-- Org 2 -->
+    <g transform="translate(36, 0)">
+      <rect width="28" height="28" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" width="28" height="28" clip-path="url(#org-clip)" />
+    </g>
+    <!-- Org 3 -->
+    <g transform="translate(72, 0)">
+      <rect width="28" height="28" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+      <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" width="28" height="28" clip-path="url(#org-clip)" />
+    </g>
+    <!-- Org 4 -->
+    <g transform="translate(108, 0)">
+      <rect width="28" height="28" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1" />
+      <!-- Generic Fallback Org representation -->
+      <circle cx="14" cy="14" r="6" fill="#8b949e" />
+    </g>
+  </g>
+</g>
+
+<!-- Profile Views Badge -->
+<g transform="translate(24, 544)">
+  <rect x="0" y="0" width="232" height="22" rx="11" fill="#1f6feb" fill-opacity="0.1" stroke="#388bfd" stroke-width="1" />
+  <text x="12" y="15" class="semi-text" font-size="10" fill="#58a6ff" letter-spacing="0.5">PROFILE VIEWS:</text>
+  <text x="220" y="15" class="semi-text" font-size="11" fill="#f0f6fc" text-anchor="end">1,250</text>
+</g>
+
+<!-- Right-Side Dashboard Grid -->
+<g transform="translate(280, 28)">
+
+<!-- ROW 1 (A): PRIMARY STATISTICAL INSIGHTS GRID (Y: 0, Height: 155) -->
+<g transform="translate(0, 0)">
+  <!-- Container Outer Box -->
+  <rect width="440" height="155" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <!-- Box Header Title -->
+  <text x="20" y="26" class="muted-text" font-size="12" letter-spacing="0.8">DASHBOARD CORE METRICS</text>
+
+  <!-- Stat Grid (2x2 Structure) -->
+  <!-- 1. Total Commits -->
+  <g transform="translate(20, 46)">
+    <rect width="190" height="42" rx="8" fill="#1f6feb" fill-opacity="0.06" stroke="#1f6feb" stroke-opacity="0.15" stroke-width="1" />
+    <!-- Micro Icon (Git Commit) -->
+    <circle cx="24" cy="21" r="5" fill="none" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="14" y1="21" x2="19" y2="21" stroke="#58a6ff" stroke-width="2"/>
+    <line x1="29" y1="21" x2="34" y2="21" stroke="#58a6ff" stroke-width="2"/>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">1450</text>
+    <text x="44" y="13" class="muted-text" font-size="10">TOTAL COMMITS</text>
+  </g>
+
+  <!-- 2. Pull Requests -->
+  <g transform="translate(230, 46)">
+    <rect width="190" height="42" rx="8" fill="#8957e5" fill-opacity="0.06" stroke="#8957e5" stroke-opacity="0.15" stroke-width="1" />
+    <!-- Micro Icon (Pull Request) -->
+    <circle cx="21" cy="15" r="3" fill="none" stroke="#bc8cff" stroke-width="1.8"/>
+    <circle cx="21" cy="27" r="3" fill="none" stroke="#bc8cff" stroke-width="1.8"/>
+    <circle cx="31" cy="21" r="3" fill="none" stroke="#bc8cff" stroke-width="1.8"/>
+    <path d="M21 18v6" stroke="#bc8cff" stroke-width="1.8"/>
+    <path d="M31 18v-1a2 2 0 00-2-2h-5" fill="none" stroke="#bc8cff" stroke-width="1.8"/>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">32</text>
+    <text x="44" y="13" class="muted-text" font-size="10">PULL REQUESTS</text>
+  </g>
+
+  <!-- 3. Closed Issues -->
+  <g transform="translate(20, 100)">
+    <rect width="190" height="42" rx="8" fill="#3ea6ff" fill-opacity="0.06" stroke="#3ea6ff" stroke-opacity="0.15" stroke-width="1" />
+    <!-- Micro Icon (Issue) -->
+    <circle cx="24" cy="21" r="6" fill="none" stroke="#79c0ff" stroke-width="1.8"/>
+    <circle cx="24" cy="21" r="1.5" fill="#79c0ff"/>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">18</text>
+    <text x="44" y="13" class="muted-text" font-size="10">ISSUES SOLVED</text>
+  </g>
+
+  <!-- 4. Pull Reviews -->
+  <g transform="translate(230, 100)">
+    <rect width="190" height="42" rx="8" fill="#39d353" fill-opacity="0.06" stroke="#39d353" stroke-opacity="0.15" stroke-width="1" />
+    <!-- Micro Icon (Review) -->
+    <path d="M22 17l3 3 6-6" fill="none" stroke="#56d364" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="18" cy="21" r="4" fill="none" stroke="#56d364" stroke-width="1.8"/>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">5</text>
+    <text x="44" y="13" class="muted-text" font-size="10">CODE REVIEWS</text>
+  </g>
+</g>
+
+<!-- ROW 1 (B): PROFILE GLOBAL RANKING BADGE (X: 455, Width: 185) -->
+<g transform="translate(455, 0)">
+  <!-- Rank Frame -->
+  <rect width="185" height="155" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <text x="92" y="26" class="muted-text" font-size="11" letter-spacing="0.8" text-anchor="middle">GLOBAL STANDING</text>
+  
+  <!-- Rank Radial Aura Glow -->
+  <circle cx="92" cy="85" r="30" fill="url(#radial-accent)" filter="url(#glow-strong)" opacity="0.8" />
+  <circle cx="92" cy="85" r="36" fill="none" stroke="url(#rank-gradient)" stroke-width="1.5" stroke-dasharray="4 3" />
+  
+  <!-- Real-time Ranking Level Indicator -->
+  <text x="92" y="94" class="rank-title" font-size="28" fill="url(#rank-gradient)" text-anchor="middle">A+</text>
+  
+  <text x="92" y="136" class="semi-text" font-size="11" fill="#a5d6ff" text-anchor="middle">Top 1.0% Developer</text>
+</g>
+
+<!-- ROW 2 (A): TOP PROGRAMMING LANGUAGES (Y: 170, Width: 310, Height: 210) -->
+<!-- STREAMING_CHUNK:Adding top languages bar... -->
+<g transform="translate(0, 170)">
+  <rect width="310" height="210" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <text x="20" y="26" class="muted-text" font-size="12" letter-spacing="0.8">TOP LANGUAGES BY COMMITS</text>
+
+  <!-- Language Bars Layout (Standardized stacked distribution bar) -->
+  <g transform="translate(20, 44)">
+    <rect width="270" height="12" rx="6" fill="#21262d" />
+    <!-- Stacked Parts (dynamic mockup width values mapped by GitHub action) -->
+    <rect class="lang-bar" x="0" y="0" width="135" height="12" rx="6" fill="#3178c6" /> <!-- TypeScript (50%) -->
+    <rect class="lang-bar" x="130" y="0" width="75" height="12" fill="#f1e05a" /> <!-- JavaScript (25%) -->
+    <rect class="lang-bar" x="203" y="0" width="45" height="12" fill="#3572A5" /> <!-- Python (15%) -->
+    <rect class="lang-bar" x="246" y="0" width="24" height="12" rx="6" fill="#e34c26" /> <!-- HTML/CSS (10%) -->
+  </g>
+
+  <!-- Languages Detailed Legend Grid -->
+  <g transform="translate(20, 75)">
+    <!-- Language Item 1: TypeScript -->
+    <g transform="translate(0, 0)">
+      <circle cx="6" cy="6" r="5" fill="#3178c6" />
+      <text x="18" y="10" class="semi-text" font-size="12">TypeScript</text>
+      <text x="18" y="25" class="muted-text" font-size="11">50.0%</text>
+    </g>
+    <!-- Language Item 2: JavaScript -->
+    <g transform="translate(140, 0)">
+      <circle cx="6" cy="6" r="5" fill="#f1e05a" />
+      <text x="18" y="10" class="semi-text" font-size="12">JavaScript</text>
+      <text x="18" y="25" class="muted-text" font-size="11">25.0%</text>
+    </g>
+    <!-- Language Item 3: Python -->
+    <g transform="translate(0, 46)">
+      <circle cx="6" cy="6" r="5" fill="#3572A5" />
+      <text x="18" y="10" class="semi-text" font-size="12">Python</text>
+      <text x="18" y="25" class="muted-text" font-size="11">15.0%</text>
+    </g>
+    <!-- Language Item 4: HTML/CSS -->
+    <g transform="translate(140, 46)">
+      <circle cx="6" cy="6" r="5" fill="#e34c26" />
+      <text x="18" y="10" class="semi-text" font-size="12">HTML/CSS</text>
+      <text x="18" y="25" class="muted-text" font-size="11">10.0%</text>
+    </g>
+  </g>
+
+  <!-- Advanced Coding Metrics Info Badge -->
+  <g transform="translate(20, 164)">
+    <rect width="270" height="28" rx="8" fill="#21262d" fill-opacity="0.5" stroke="#30363d" stroke-width="0.8" />
+    <text x="12" y="18" class="regular-text" font-size="11" fill="#8b949e">Analysis based on past 1,000 pushes</text>
+    <circle cx="250" cy="14" r="3" fill="#39d353" />
+  </g>
+</g>
+
+<!-- ROW 2 (B): ACTIVE STREAKS & METRICS (Y: 170, Width: 315, Height: 210) -->
+<g transform="translate(325, 170)">
+  <rect width="315" height="210" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <text x="20" y="26" class="muted-text" font-size="12" letter-spacing="0.8">COMMITMENT CONGRUENCE</text>
+
+  <!-- Streak Dashboard Fire Panel -->
+  <g transform="translate(20, 44)">
+    <rect width="275" height="72" rx="10" fill="url(#active-streak)" fill-opacity="0.1" stroke="#f97316" stroke-opacity="0.25" stroke-width="1" />
+    
+    <!-- Vector Flame Icon -->
+    <g transform="translate(16, 16)">
+      <path d="M17.653 9.405a10.073 10.073 0 00-4.043-5.285 10.53 10.53 0 00-6.195-1.46c.394 2.822-.65 5.753-2.617 7.72a10.223 10.223 0 00-2.8 11.237c1.378 3.864 5.064 6.383 9.145 6.383a9.883 9.883 0 009.882-9.882c0-3.238-1.547-6.231-3.372-8.713z" fill="url(#active-streak)"/>
+      <path d="M12.001 16c.38.79.46 1.7.22 2.51a3.003 3.003 0 01-3.41 2.06c-1.39-.23-2.31-1.63-2.01-3 .54-2.5 2.5-4.5 4.7-5.5.06 1.5.17 2.82.5 3.93z" fill="#fff"/>
+    </g>
+
+    <!-- Current Streak Stats Info -->
+    <text x="68" y="32" class="muted-text" font-size="11">CURRENT DEV STREAK</text>
+    <text x="68" y="55" class="stat-val" font-size="24" fill="#f0f6fc">3 <tspan font-size="14" font-weight="normal" fill="#c9d1d9">Days</tspan></text>
+  </g>
+
+  <!-- Longest Historical Streak metrics display -->
+  <g transform="translate(20, 132)">
+    <text x="0" y="15" class="muted-text" font-size="11">LONGEST RECORDED STREAK</text>
+    <text x="0" y="36" class="stat-val" font-size="20" fill="#f85149">8 <tspan font-size="12" font-weight="normal" fill="#8b949e">Days</tspan></text>
+    
+    <!-- Flame Streak mini badge graphics -->
+    <rect x="205" y="10" width="70" height="24" rx="12" fill="#21262d" stroke="#30363d" stroke-width="1" />
+    <text x="240" y="26" class="semi-text" font-size="11" fill="#56d364" text-anchor="middle">ACTIVE</text>
+    <circle cx="217" cy="22" r="3.5" fill="#39d353" filter="url(#glow-strong)" />
+  </g>
+</g>
+
+<!-- ROW 3: PINNED PROJECTS & REPOSITORIES (Y: 395, Height: 110) -->
+<!-- STREAMING_CHUNK:Generating pinned projects... -->
+<!-- Project 1 (Left) -->
+<g transform="translate(0, 395)" class="card-group">
+  <rect class="card-bg" width="310" height="110" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <!-- Repo Name with Icon -->
+  <g transform="translate(18, 18)">
+    <!-- Book Icon -->
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M6 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <text x="24" y="13" class="semi-text" font-size="14" fill="#58a6ff">caissa-monitoring</text>
+  </g>
+
+  <!-- Repo Description snippet -->
+  <text x="18" y="54" class="regular-text" font-size="11" fill="#8b949e">
+    <tspan x="18" dy="0">AI Infrastructure Monitoring Platform</tspan>
+  </text>
+
+  <!-- Metadata (Stars, Forks, Language Dot) -->
+  <g transform="translate(18, 80)">
+    <!-- Language -->
+    <circle cx="6" cy="6" r="4.5" fill="#3178c6" />
+    <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">TypeScript</text>
+
+    <!-- Stars count -->
+    <g transform="translate(100, 0)">
+      <use href="#icon-star" x="0" y="0" width="12" height="12" />
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">84</text>
+    </g>
+
+    <!-- Fork count -->
+    <g transform="translate(160, 0)">
+      <use href="#icon-fork" x="0" y="0" width="12" height="12" />
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">12</text>
+    </g>
+  </g>
+</g>
+
+<!-- Project 2 (Right) -->
+<g transform="translate(325, 395)" class="card-group">
+  <rect class="card-bg" width="315" height="110" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <!-- Repo Name with Icon -->
+  <g transform="translate(18, 18)">
+    <!-- Book Icon -->
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M6 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <text x="24" y="13" class="semi-text" font-size="14" fill="#bc8cff">vercel-clone</text>
+  </g>
+
+  <!-- Repo Description snippet -->
+  <text x="18" y="54" class="regular-text" font-size="11" fill="#8b949e">
+    <tspan x="18" dy="0">Deployment Platform with real-time logs</tspan>
+  </text>
+
+  <!-- Metadata (Stars, Forks, Language Dot) -->
+  <g transform="translate(18, 80)">
+    <!-- Language -->
+    <circle cx="6" cy="6" r="4.5" fill="#f1e05a" />
+    <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">JavaScript</text>
+
+    <!-- Stars count -->
+    <g transform="translate(100, 0)">
+      <use href="#icon-star" x="0" y="0" width="12" height="12" />
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">44</text>
+    </g>
+
+    <!-- Fork count -->
+    <g transform="translate(160, 0)">
+      <use href="#icon-fork" x="0" y="0" width="12" height="12" />
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">6</text>
+    </g>
+  </g>
+</g>
+
+<!-- ROW 4: MINI HEATMAP VISUAL PREVIEW & CONTRIBUTIONS (Y: 520, Height: 60) -->
+<!-- STREAMING_CHUNK:Designing streak and heatmap... -->
+<g transform="translate(0, 520)">
+  <rect width="640" height="60" rx="14" fill="#161b22" fill-opacity="0.4" stroke="#30363d" stroke-width="1" />
+  
+  <!-- Label Header -->
+  <text x="18" y="34" class="muted-text" font-size="11" letter-spacing="0.8">CONTRIBUTIONS HEATMAP PREVIEW</text>
+  
+  <!-- Real-time dynamic block of simulated Git activity matrix -->
+  <g transform="translate(245, 17)">
+    <!-- 7x28 Mini Grid Representation using standard color scales -->
+    <!-- Row 1 -->
+    <rect x="0" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="11" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="22" y="0" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="33" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="44" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="55" y="0" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="66" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="77" y="0" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="88" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="99" y="0" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="110" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="121" y="0" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="132" y="0" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="143" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="154" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="165" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="176" y="0" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="187" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="198" y="0" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="209" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="220" y="0" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="231" y="0" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="242" y="0" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="253" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="264" y="0" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="275" y="0" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="286" y="0" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="297" y="0" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="308" y="0" width="8" height="8" rx="1.5" fill="#006d32" />
+
+    <!-- Row 2 -->
+    <rect x="0" y="10" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="11" y="10" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="22" y="10" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="33" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="44" y="10" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="55" y="10" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="66" y="10" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="77" y="10" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="88" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="99" y="10" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="110" y="10" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="121" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="132" y="10" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="143" y="10" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="154" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="165" y="10" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="176" y="10" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="187" y="10" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="198" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="209" y="10" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="220" y="10" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="231" y="10" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="242" y="10" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="253" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="264" y="10" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="275" y="10" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="286" y="10" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="297" y="10" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="308" y="10" width="8" height="8" rx="1.5" fill="#39d353" />
+
+    <!-- Row 3 -->
+    <rect x="0" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="11" y="20" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="22" y="20" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="33" y="20" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="44" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="55" y="20" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="66" y="20" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="77" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="88" y="20" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="99" y="20" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="110" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="121" y="20" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="132" y="20" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="143" y="20" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="154" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="165" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="176" y="20" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="187" y="20" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="198" y="20" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="209" y="20" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="220" y="20" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="231" y="20" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="242" y="20" width="8" height="8" rx="1.5" fill="#0e4429" />
+    <rect x="253" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="264" y="20" width="8" height="8" rx="1.5" fill="#006d32" />
+    <rect x="275" y="20" width="8" height="8" rx="1.5" fill="#0d1117" />
+    <rect x="286" y="20" width="8" height="8" rx="1.5" fill="#39d353" />
+    <rect x="297" y="20" width="8" height="8" rx="1.5" fill="#26a641" />
+    <rect x="308" y="20" width="8" height="8" rx="1.5" fill="#006d32" />
+  </g>
+
+  <!-- Active heatmap year label -->
+  <text x="562" y="34" class="semi-text" font-size="11" fill="#39d353">736 Contributions</text>
+</g>
+</g>
+</svg>
