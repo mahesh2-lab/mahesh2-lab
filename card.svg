@@ -114,13 +114,13 @@
 </g>
 
 <!-- Name & Handle Header -->
-<text x="24" y="152" class="title-text" font-size="22">Mahesh</text>
+<text x="24" y="152" class="title-text" font-size="22">Mahesh Chopade</text>
 <text x="24" y="174" class="regular-text" font-size="14" fill="#8b949e">@mahesh2-lab</text>
 
 <!-- Professional User Bio (Structured for Multi-line compatibility) -->
 <text x="24" y="210" class="regular-text" font-size="13" fill="#c9d1d9">
-  <tspan x="24" dy="0">Full Stack Developer &amp; Backend Engineer</tspan>
-  <tspan x="24" dy="18">Building Caïssa Monitoring Platform</tspan>
+  <tspan x="24" dy="0">Full-Stack Developer Building side projects I</tspan>
+  <tspan x="24" dy="18">faster than can finish them. Professional bug</tspan>
 </text>
 
 <!-- Divider Line -->
@@ -130,22 +130,22 @@
 <!-- Company -->
 <g transform="translate(24, 274)">
   <use href="#icon-company" x="0" y="0" width="16" height="16" />
-  <text x="26" y="13" class="regular-text" font-size="13" fill="#c9d1d9">Caïssa</text>
+  <text x="26" y="13" class="regular-text" font-size="13" fill="#c9d1d9">Freelance</text>
 </g>
 <!-- Location -->
 <g transform="translate(24, 302)">
   <use href="#icon-location" x="0" y="0" width="16" height="16" />
-  <text x="26" y="13" class="regular-text" font-size="13" fill="#c9d1d9">Buldhana, India</text>
+  <text x="26" y="13" class="regular-text" font-size="13" fill="#c9d1d9">buldhana</text>
 </g>
 <!-- Personal/Dev Website -->
 <g transform="translate(24, 330)">
   <use href="#icon-link" x="0" y="0" width="16" height="16" />
-  <text x="26" y="13" class="semi-text" font-size="13" fill="#58a6ff">mahesh2-lab.github.io</text>
+  <text x="26" y="13" class="semi-text" font-size="13" fill="#58a6ff">github.com</text>
 </g>
 <!-- Joined Date -->
 <g transform="translate(24, 358)">
   <use href="#icon-calendar" x="0" y="0" width="16" height="16" />
-  <text x="26" y="13" class="regular-text" font-size="13" fill="#8b949e">Joined Jul 2025</text>
+  <text x="26" y="13" class="regular-text" font-size="13" fill="#8b949e">Joined May 2020</text>
 </g>
 
 <!-- Divider Line -->
@@ -153,13 +153,13 @@
 
 <!-- Dynamic Social Indicators (Followers, Following, Stars) -->
 <g transform="translate(24, 412)">
-  <text x="0" y="12" class="semi-text" font-size="15" fill="#f0f6fc">42</text>
+  <text x="0" y="12" class="semi-text" font-size="15" fill="#f0f6fc">7</text>
   <text x="0" y="28" class="muted-text" font-size="11">FOLLOWERS</text>
 
-  <text x="84" y="12" class="semi-text" font-size="15" fill="#f0f6fc">28</text>
+  <text x="84" y="12" class="semi-text" font-size="15" fill="#f0f6fc">2</text>
   <text x="84" y="28" class="muted-text" font-size="11">FOLLOWING</text>
 
-  <text x="168" y="12" class="semi-text" font-size="15" fill="#f0f6fc">128</text>
+  <text x="168" y="12" class="semi-text" font-size="15" fill="#f0f6fc">17</text>
   <text x="168" y="28" class="muted-text" font-size="11">STARS REC.</text>
 </g>
 
@@ -222,7 +222,7 @@
     <circle cx="24" cy="21" r="5" fill="none" stroke="#58a6ff" stroke-width="2"/>
     <line x1="14" y1="21" x2="19" y2="21" stroke="#58a6ff" stroke-width="2"/>
     <line x1="29" y1="21" x2="34" y2="21" stroke="#58a6ff" stroke-width="2"/>
-    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">1450</text>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">367</text>
     <text x="44" y="13" class="muted-text" font-size="10">TOTAL COMMITS</text>
   </g>
 
@@ -235,7 +235,7 @@
     <circle cx="31" cy="21" r="3" fill="none" stroke="#bc8cff" stroke-width="1.8"/>
     <path d="M21 18v6" stroke="#bc8cff" stroke-width="1.8"/>
     <path d="M31 18v-1a2 2 0 00-2-2h-5" fill="none" stroke="#bc8cff" stroke-width="1.8"/>
-    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">32</text>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">3</text>
     <text x="44" y="13" class="muted-text" font-size="10">PULL REQUESTS</text>
   </g>
 
@@ -245,7 +245,7 @@
     <!-- Micro Icon (Issue) -->
     <circle cx="24" cy="21" r="6" fill="none" stroke="#79c0ff" stroke-width="1.8"/>
     <circle cx="24" cy="21" r="1.5" fill="#79c0ff"/>
-    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">18</text>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">0</text>
     <text x="44" y="13" class="muted-text" font-size="10">ISSUES SOLVED</text>
   </g>
 
@@ -255,7 +255,7 @@
     <!-- Micro Icon (Review) -->
     <path d="M22 17l3 3 6-6" fill="none" stroke="#56d364" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="18" cy="21" r="4" fill="none" stroke="#56d364" stroke-width="1.8"/>
-    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">5</text>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">1</text>
     <text x="44" y="13" class="muted-text" font-size="10">CODE REVIEWS</text>
   </g>
 </g>
@@ -272,9 +272,9 @@
   <circle cx="92" cy="85" r="36" fill="none" stroke="url(#rank-gradient)" stroke-width="1.5" stroke-dasharray="4 3" />
   
   <!-- Real-time Ranking Level Indicator -->
-  <text x="92" y="94" class="rank-title" font-size="28" fill="url(#rank-gradient)" text-anchor="middle">A+</text>
+  <text x="92" y="94" class="rank-title" font-size="28" fill="url(#rank-gradient)" text-anchor="middle">B+</text>
   
-  <text x="92" y="136" class="semi-text" font-size="11" fill="#a5d6ff" text-anchor="middle">Top 1.0% Developer</text>
+  <text x="92" y="136" class="semi-text" font-size="11" fill="#a5d6ff" text-anchor="middle">Top 25.0% Developer</text>
 </g>
 
 <!-- ROW 2 (A): TOP PROGRAMMING LANGUAGES (Y: 170, Width: 310, Height: 210) -->
@@ -348,7 +348,7 @@
 
     <!-- Current Streak Stats Info -->
     <text x="68" y="32" class="muted-text" font-size="11">CURRENT DEV STREAK</text>
-    <text x="68" y="55" class="stat-val" font-size="24" fill="#f0f6fc">3 <tspan font-size="14" font-weight="normal" fill="#c9d1d9">Days</tspan></text>
+    <text x="68" y="55" class="stat-val" font-size="24" fill="#f0f6fc">4 <tspan font-size="14" font-weight="normal" fill="#c9d1d9">Days</tspan></text>
   </g>
 
   <!-- Longest Historical Streak metrics display -->
@@ -375,12 +375,12 @@
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round"/>
     <path d="M6 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="#58a6ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     
-    <text x="24" y="13" class="semi-text" font-size="14" fill="#58a6ff">caissa-monitoring</text>
+    <text x="24" y="13" class="semi-text" font-size="14" fill="#58a6ff">JavaRena</text>
   </g>
 
   <!-- Repo Description snippet -->
   <text x="18" y="54" class="regular-text" font-size="11" fill="#8b949e">
-    <tspan x="18" dy="0">AI Infrastructure Monitoring Platform</tspan>
+    <tspan x="18" dy="0"></tspan>
   </text>
 
   <!-- Metadata (Stars, Forks, Language Dot) -->
@@ -392,13 +392,13 @@
     <!-- Stars count -->
     <g transform="translate(100, 0)">
       <use href="#icon-star" x="0" y="0" width="12" height="12" />
-      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">84</text>
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">4</text>
     </g>
 
     <!-- Fork count -->
     <g transform="translate(160, 0)">
       <use href="#icon-fork" x="0" y="0" width="12" height="12" />
-      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">12</text>
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">0</text>
     </g>
   </g>
 </g>
@@ -413,12 +413,12 @@
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-linecap="round"/>
     <path d="M6 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" fill="none" stroke="#bc8cff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
     
-    <text x="24" y="13" class="semi-text" font-size="14" fill="#bc8cff">vercel-clone</text>
+    <text x="24" y="13" class="semi-text" font-size="14" fill="#bc8cff">mahesh2-lab</text>
   </g>
 
   <!-- Repo Description snippet -->
   <text x="18" y="54" class="regular-text" font-size="11" fill="#8b949e">
-    <tspan x="18" dy="0">Deployment Platform with real-time logs</tspan>
+    <tspan x="18" dy="0"></tspan>
   </text>
 
   <!-- Metadata (Stars, Forks, Language Dot) -->
@@ -430,13 +430,13 @@
     <!-- Stars count -->
     <g transform="translate(100, 0)">
       <use href="#icon-star" x="0" y="0" width="12" height="12" />
-      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">44</text>
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">4</text>
     </g>
 
     <!-- Fork count -->
     <g transform="translate(160, 0)">
       <use href="#icon-fork" x="0" y="0" width="12" height="12" />
-      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">6</text>
+      <text x="16" y="10" class="regular-text" font-size="11" fill="#8b949e">0</text>
     </g>
   </g>
 </g>
@@ -547,7 +547,7 @@
   </g>
 
   <!-- Active heatmap year label -->
-  <text x="562" y="34" class="semi-text" font-size="11" fill="#39d353">736 Contributions</text>
+  <text x="562" y="34" class="semi-text" font-size="11" fill="#39d353">742 Contributions</text>
 </g>
 </g>
 </svg>
