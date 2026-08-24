@@ -222,7 +222,7 @@
     <circle cx="24" cy="21" r="5" fill="none" stroke="#58a6ff" stroke-width="2"/>
     <line x1="14" y1="21" x2="19" y2="21" stroke="#58a6ff" stroke-width="2"/>
     <line x1="29" y1="21" x2="34" y2="21" stroke="#58a6ff" stroke-width="2"/>
-    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">609</text>
+    <text x="44" y="26" class="stat-val" font-size="18" fill="#f0f6fc">618</text>
     <text x="44" y="13" class="muted-text" font-size="10">TOTAL COMMITS</text>
   </g>
 
@@ -272,9 +272,9 @@
   <circle cx="92" cy="85" r="36" fill="none" stroke="url(#rank-gradient)" stroke-width="1.5" stroke-dasharray="4 3" />
   
   <!-- Real-time Ranking Level Indicator -->
-  <text x="92" y="94" class="rank-title" font-size="28" fill="url(#rank-gradient)" text-anchor="middle">B+</text>
+  <text x="92" y="94" class="rank-title" font-size="28" fill="url(#rank-gradient)" text-anchor="middle">A-</text>
   
-  <text x="92" y="136" class="semi-text" font-size="11" fill="#a5d6ff" text-anchor="middle">Top 25.0% Developer</text>
+  <text x="92" y="136" class="semi-text" font-size="11" fill="#a5d6ff" text-anchor="middle">Top 10.0% Developer</text>
 </g>
 
 <!-- ROW 2 (A): TOP PROGRAMMING LANGUAGES (Y: 170, Width: 310, Height: 210) -->
@@ -547,7 +547,7 @@
   </g>
 
   <!-- Active heatmap year label -->
-  <text x="562" y="34" class="semi-text" font-size="11" fill="#39d353">1,047 Contributions</text>
+  <text x="562" y="34" class="semi-text" font-size="11" fill="#39d353">1,056 Contributions</text>
 </g>
 </g>
 </svg>
