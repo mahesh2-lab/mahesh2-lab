@@ -35,6 +35,8 @@
 [![Twitter](https://img.shields.io/badge/Twitter-mahesh-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
 [![Instagram](https://img.shields.io/badge/Instagram-mahesh-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/)
 [![Live Terminal](https://img.shields.io/badge/⚡_Live_Terminal-mahesh2--lab.github.io-22d3ee?style=for-the-badge&logo=gnometerminal&logoColor=black)](https://mahesh2-lab.github.io)
+![Profile view counter on GitHub](https://komarev.com/ghpvc/?username=perisicnikola37&style=for-the-badge)
+
 
 <h3><code>mahesh@github ~ $ ./stats.sh</code></h3>
 
@@ -52,5 +54,4 @@
     </td>
   </tr>
 </table>
-![](https://komarev.com/ghpvc/?username=mahesh2-lab)
 </div>
